@@ -1,12 +1,12 @@
-# GLIS
-A prototype for GLIS
+# Law
+
 
 ## Technologies
 * React, this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 * Styled components
 
 ### Deployment
-https://glis-prototype.netlify.app
+
 
 ## Available Scripts
 
