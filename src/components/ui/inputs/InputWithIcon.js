@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { secondaryBackground } from '../styles';
-import magnifier from '../../assets/images/magnifier.svg';
+import magnifier from '../../../assets/images/magnifier.svg';
 
 export const InputWithIcon = () => {
   return (
