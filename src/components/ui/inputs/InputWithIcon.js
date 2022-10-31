@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { secondaryBackground } from './styles';
+import { secondaryBackground } from '../styles';
 import magnifier from '../../assets/images/magnifier.svg';
 
-const InputField = () => {
+export const InputWithIcon = () => {
   return (
     <InputContainer>
       <Icon src={magnifier} alt='Magnifier icon' />
@@ -40,5 +40,3 @@ const StyledInput = styled.input`
     border-color: transparent;
   }
 `;
-
-export default InputField;

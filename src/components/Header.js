@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import styled from 'styled-components/macro';
 import { Circle } from './ui/circle';
-import InputField from './ui/input';
 import { red } from './ui/styles';
 import cells from '../assets/images/table-cells.svg';
 import bell from '../assets/images/bell.svg';
 import { NotificationPopUp } from './popUp/NotificationPopUp';
 import { Link } from 'react-router-dom';
+import { InputWithIcon } from './ui/inputs';
 
 export const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,7 +14,7 @@ export const Header = () => {
   return (
     <>
       <HeaderContainer>
-        <InputField />
+        <InputWithIcon />
         <CircleContainer>
           <Link to={'/profileOption'}>
             <Circle icon={cells} altText='Table cell icon' iconSize={20} />
