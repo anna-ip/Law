@@ -3,7 +3,6 @@ import {
   green,
   primaryGrey,
   secondaryBackground,
-  // lightBlue,
   primaryText,
 } from '../ui/styles';
 import styled from 'styled-components';
@@ -24,13 +23,16 @@ export const LogIn = () => {
           <InfoText>Please enter your details! </InfoText>
           <InputContainer>
             <TextInput
-              type='text'
+              type='email'
               label='Email'
               value={email}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
               placeholder='example@example.com'
+              margin='10px 0 0 0'
+              padding='0px 24px'
+              labelMargin='0 0 8px 6px'
             />
             <TextInput
               type='password'
@@ -39,20 +41,22 @@ export const LogIn = () => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
               }
-              placeholder='*********'
+              placeholder='Must have at least 6 characters'
+              margin='10px 0 0 0'
+              padding='0px 24px'
+              labelMargin='0 0 8px 6px'
             />
-
-            {/* <StyledLabel>Password</StyledLabel>
-            <StyledInput type='password' placeholder='*********' /> */}
           </InputContainer>
           <CheckBoxContainer>
             <CheckBoxWrapper>
-              <input type='checkbox' />
+              <StyledInput type='checkbox' />
               <InfoText>Remember for 30 days</InfoText>
             </CheckBoxWrapper>
             <ForgotButton>Forgot Password</ForgotButton>
           </CheckBoxContainer>
-          <LinkButton to={'/profileOption'}>Sign In</LinkButton>
+          <LinkButton to={'/profileOption'} width={294}>
+            Sign in
+          </LinkButton>
           <GoogleButton to={'/profileOption'} />
           <SignUpWrapper>
             <SignUpText>Don’t have an account?</SignUpText>
@@ -77,7 +81,8 @@ const LoginContainer = styled.div`
   background-color: ${secondaryBackground};
   border-radius: 20px;
   max-height: 700px;
-  padding: 60px 175px;
+  max-width: 650px;
+  padding: 60px 150px;
 `;
 
 const InnerContainer = styled.div`
@@ -110,22 +115,6 @@ const InputContainer = styled.div`
   width: 100%;
 `;
 
-// const StyledLabel = styled.label`
-//   font-family: 'Inter';
-//   font-weight: 400;
-//   font-size: 1.25rem;
-//   color: ${primaryText};
-//   margin-top: 15px;
-// `;
-
-// const StyledInput = styled.input`
-//   border: 1px solid ${lightBlue};
-//   border-radius: 7px;
-//   height: 40px;
-//   margin-top: 5px;
-//   padding: 1px 12px;
-// `;
-
 const CheckBoxContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -139,10 +128,15 @@ const CheckBoxWrapper = styled.div`
   flex-direction: row;
 `;
 
+const StyledInput = styled.input`
+  accent-color: ${green};
+`;
+
 const ForgotButton = styled.button`
   color: ${green};
   background-color: transparent;
   border: none;
+  cursor: pointer;
 `;
 
 const SignUpWrapper = styled.div`
@@ -161,4 +155,6 @@ const SignUpText = styled(InfoText)`
 const SignUpLink = styled(SignUpText)`
   color: ${green};
   margin-left: 5px;
+  text-decoration: underline;
+  cursor: pointer;
 `;

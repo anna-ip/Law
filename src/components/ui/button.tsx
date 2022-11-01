@@ -8,7 +8,7 @@ import { ReactComponent as Arrow } from '../../assets/images/Arrow 1.svg';
 interface LinkButtonProps {
   to: string;
   children: React.ReactNode;
-  backgroundColor?: string;
+  backgroundcolor?: string;
   width?: number;
   color?: string;
 }
@@ -16,14 +16,14 @@ interface LinkButtonProps {
 export const LinkButton = ({
   to,
   children,
-  backgroundColor,
+  backgroundcolor,
   width,
   color,
 }: LinkButtonProps) => {
   return (
     <StyledLink
       to={to}
-      backgroundColor={backgroundColor}
+      backgroundcolor={backgroundcolor}
       width={width}
       color={color}
     >
@@ -35,8 +35,8 @@ export const LinkButton = ({
 const StyledLink = styled(Link)<LinkButtonProps>`
   display: flex;
   background-color: ${(props) =>
-    props.backgroundColor ? `${props.backgroundColor}` : `${black}`};
-  width: ${(props) => (props.width ? `${props.width}` : '150px')};
+    props.backgroundcolor ? `${props.backgroundcolor}` : `${black}`};
+  width: ${(props) => (props.width ? `${props.width}px` : '150px')};
   height: 60px;
   justify-content: center;
   align-items: center;
@@ -45,7 +45,7 @@ const StyledLink = styled(Link)<LinkButtonProps>`
   margin-top: 15px;
   font-family: 'Poppins';
   font-weight: 500;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: ${(props) => (props.color ? `${props.color}` : `${white}`)};
   text-decoration: none;
   cursor: pointer;
@@ -72,7 +72,7 @@ export const GoogleButton = ({ to }: GoogleButtonProps) => {
     <StyledGoogleButton to={to}>
       <LabelContainer>
         <StyledLogo src={logo} alt='Google logo' />
-        <Label>Sign In with Google</Label>
+        <Label>Sign in with Google</Label>
       </LabelContainer>
     </StyledGoogleButton>
   );
@@ -89,6 +89,7 @@ const StyledGoogleButton = styled(Link)`
   border: 2px solid ${softBlack};
   color: ${text};
   margin-top: 10px;
+  text-decoration: none;
   cursor: pointer;
 `;
 

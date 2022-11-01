@@ -3,18 +3,21 @@ import { lightBlue, primaryText } from '../styles';
 import magnifier from '../../../assets/images/magnifier.svg';
 
 type IconStyle = magnifier;
-type InputType = 'text' | 'password';
+type InputType = 'text' | 'password' | 'email';
 
 interface TextInputProps {
   type: InputType;
-  label?: String;
-  id?: String | Number;
-  name?: String;
-  placeholder: String;
-  value: String;
+  label?: string;
+  id?: string | number;
+  name?: string;
+  placeholder: string;
+  value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   icon?: IconStyle;
   inputText?: ReactNode;
+  padding?: string;
+  margin?: String;
+  labelMargin?: string;
 }
 
 export const TextInput = ({
@@ -27,12 +30,19 @@ export const TextInput = ({
   onChange,
   icon,
   inputText,
+  padding,
+  margin,
+  labelMargin,
 }: TextInputProps) => {
   return (
-    <>
-      {label && <StyledLabel>{label}</StyledLabel>}
-      {icon && <Icon src={icon} alt='Magnifier icon' />}
-      <StyledInput>
+    <InputContainer margin={margin}>
+      {label && (
+        <StyledLabel htmlFor={id} labelMargin={labelMargin}>
+          {label}
+        </StyledLabel>
+      )}
+      <StyledInput padding={padding}>
+        {icon && <Icon src={icon} alt='Magnifier icon' />}
         <Input
           type={type}
           id={id}
@@ -43,17 +53,20 @@ export const TextInput = ({
         />
         {inputText && <InputText>{inputText}</InputText>}
       </StyledInput>
-
-      <StyledInput type='text' />
-    </>
+    </InputContainer>
   );
 };
+
+const InputContainer = styled.div`
+  margin: ${(props) => `${props.margin}`};
+`;
 
 const StyledLabel = styled.label`
   font-family: 'Inter';
   font-weight: 500;
   font-size: 16px;
   color: ${primaryText};
+  margin: ${(props) => (props.labelMargin ? `${props.labelMargin}` : 0)};
 `;
 
 const Icon = styled.img`
@@ -71,21 +84,21 @@ const StyledInput = styled.div`
   height: 43px;
   border: 1px solid ${lightBlue};
   border-radius: 10px;
-  padding: 10px 24px;
+  padding: ${(props) => (props.padding ? `${props.padding}` : '10px 24px')};
 `;
 
 const Input = styled.input`
   font-family: 'Inter';
   font-weight: 500;
   font-size: 16px;
-  width: 50%;
+  width: 100%;
   color: ${primaryText};
   border-style: none;
   padding: 0;
   ::placeholder {
     font-family: 'Inter';
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1rem;
     color: ${primaryText};
     margin: 0;
   }
