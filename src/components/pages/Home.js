@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { Header } from '../Header';
 import { NavLink } from '../navLink/NavLink';
-import { MapCard } from '../card/map/MapCard';
+import { MapCard } from '../cards/map/MapCard';
 import { LastUpdated } from '../LastUpdated';
 import {
   RegionalOverview,
@@ -13,7 +13,7 @@ import {
   LegalOperationModel,
   SpendOverview,
   OptimizationTracker,
-} from '../card/home';
+} from '../cards/home';
 
 export const Home = () => {
   const [updated, setUpdated] = useState('');

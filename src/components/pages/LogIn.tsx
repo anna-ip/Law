@@ -1,97 +1,64 @@
 import React, { useState } from 'react';
-import {
-  green,
-  primaryGrey,
-  secondaryBackground,
-  primaryText,
-} from '../ui/styles';
+import { green, primaryGrey, primaryText } from '../ui/styles';
 import styled from 'styled-components';
 import { GoogleButton, LinkButton } from '../ui/button';
 import { ReactComponent as Logo } from '../../assets/images/logo-black.svg';
 import { TextInput } from '../ui/inputs/index';
+import { WelcomeCard } from '../cards/cardComponents/WelcomeCard';
 
 export const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   return (
-    <Container>
-      <LoginContainer>
-        <InnerContainer>
-          <Logo width={53} height={56} />
-          <Title>Sign in to GLIS</Title>
-          <InfoText>Please enter your details! </InfoText>
-          <InputContainer>
-            <TextInput
-              type='email'
-              label='Email'
-              value={email}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setEmail(e.target.value)
-              }
-              placeholder='example@example.com'
-              margin='10px 0 0 0'
-              padding='0px 24px'
-              labelMargin='0 0 8px 6px'
-            />
-            <TextInput
-              type='password'
-              label='Password'
-              value={password}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setPassword(e.target.value)
-              }
-              placeholder='Must have at least 6 characters'
-              margin='10px 0 0 0'
-              padding='0px 24px'
-              labelMargin='0 0 8px 6px'
-            />
-          </InputContainer>
-          <CheckBoxContainer>
-            <CheckBoxWrapper>
-              <StyledInput type='checkbox' />
-              <InfoText>Remember for 30 days</InfoText>
-            </CheckBoxWrapper>
-            <ForgotButton>Forgot Password</ForgotButton>
-          </CheckBoxContainer>
-          <LinkButton to={'/profileOption'} width={294}>
-            Sign in
-          </LinkButton>
-          <GoogleButton to={'/profileOption'} />
-          <SignUpWrapper>
-            <SignUpText>Don’t have an account?</SignUpText>
-            <SignUpLink>Sign up</SignUpLink>
-          </SignUpWrapper>
-        </InnerContainer>
-      </LoginContainer>
-    </Container>
+    <WelcomeCard>
+      <Logo width={53} height={56} />
+      <Title>Sign in to GLIS</Title>
+      <InfoText>Please enter your details!</InfoText>
+      <InputContainer>
+        <TextInput
+          type='email'
+          label='Email'
+          value={email}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setEmail(e.target.value)
+          }
+          placeholder='example@example.com'
+          margin='10px 0 0 0'
+          padding='0px 24px'
+          labelMargin='0 0 8px 6px'
+        />
+        <TextInput
+          type='password'
+          label='Password'
+          value={password}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setPassword(e.target.value)
+          }
+          placeholder='Must have at least 6 characters'
+          margin='10px 0 0 0'
+          padding='0px 24px'
+          labelMargin='0 0 8px 6px'
+        />
+      </InputContainer>
+      <CheckBoxContainer>
+        <CheckBoxWrapper>
+          <StyledInput type='checkbox' />
+          <InfoText>Remember for 30 days</InfoText>
+        </CheckBoxWrapper>
+        <ForgotButton>Forgot Password</ForgotButton>
+      </CheckBoxContainer>
+      <LinkButton to={'/profileOption'} width={294}>
+        Sign in
+      </LinkButton>
+      <GoogleButton to={'/profileOption'} />
+      <SignUpWrapper>
+        <SignUpText>Don’t have an account?</SignUpText>
+        <SignUpLink>Sign up</SignUpLink>
+      </SignUpWrapper>
+    </WelcomeCard>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
-
-const LoginContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: ${secondaryBackground};
-  border-radius: 20px;
-  max-height: 700px;
-  max-width: 650px;
-  padding: 60px 150px;
-`;
-
-const InnerContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-`;
 
 const Title = styled.h1`
   font-family: 'Poppins';

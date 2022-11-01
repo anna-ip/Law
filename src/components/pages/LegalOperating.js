@@ -1,7 +1,7 @@
 import { Header } from '../Header';
 import { NavLink } from '../navLink/NavLink';
 import styled from 'styled-components';
-import { LegalCardGroup } from '../card/legal/LegalCardGroup';
+import { LegalCardGroup } from '../cards/legal/LegalCardGroup';
 
 export const LegalOperating = () => {
   return (

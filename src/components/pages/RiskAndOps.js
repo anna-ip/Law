@@ -5,7 +5,7 @@ import {
   Materialized,
   RiskManagement,
   RiskAndOpportunities,
-} from '../card/risk/index';
+} from '../cards/risk/index';
 import { LastUpdated } from '../LastUpdated';
 
 export const RiskAndOps = () => {

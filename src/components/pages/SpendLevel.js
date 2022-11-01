@@ -1,8 +1,8 @@
 import { Header } from '../Header';
 import { NavLink } from '../navLink/NavLink';
 import styled from 'styled-components/macro';
-import { SpendLevelCard } from '../card/spend/SpendLevelCard';
-import { ComplexityCard } from '../card/spend/index';
+import { SpendLevelCard } from '../cards/spend/SpendLevelCard';
+import { ComplexityCard } from '../cards/spend/index';
 import { LastUpdated } from '../LastUpdated';
 
 export const SpendLevel = () => {
