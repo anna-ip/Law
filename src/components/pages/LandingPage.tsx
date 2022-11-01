@@ -43,14 +43,14 @@ export const LandingPage = () => {
               <SubTitle>
                 With the power of data measuring efficiency holistically now!
               </SubTitle>
-              <LinkButton to={'/logIn'} width='180px'>
+              <LinkButton to={'/logIn'} width={180}>
                 Get started
               </LinkButton>
             </TextWrapper>
           </Column>
           <Column>
             <CardWrapper>
-              <Cards width='37rem' height='30rem' />
+              <Cards width='33rem' height='27rem' />
             </CardWrapper>
           </Column>
         </InnerContainer>
@@ -85,7 +85,7 @@ const LogoWrapper = styled.div`
 const NavContainer = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 70px;
+  gap: 4rem;
 `;
 
 const Tab = styled.p`
@@ -109,7 +109,7 @@ const Column = styled.div`
 `;
 
 const TextWrapper = styled.div`
-  width: 600px;
+  width: 90%;
 `;
 
 const TitleRow = styled.div`
@@ -136,7 +136,7 @@ const SubTitle = styled.h2`
   font-size: 1.6rem;
   color: ${primaryText};
   line-height: 140%;
-  margin: 30px 0 70px 0;
+  margin: 30px 0 7% 0;
 `;
 
 const CardWrapper = styled.div`

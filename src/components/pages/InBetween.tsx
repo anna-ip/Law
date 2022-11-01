@@ -1,5 +1,5 @@
 import React from 'react';
-import { green, secondaryBackground, primaryText } from '../ui/styles';
+import { green, primaryText } from '../ui/styles';
 import styled from 'styled-components';
 import { LinkButton } from '../ui/button';
 import { ReactComponent as Logo } from '../../assets/images/logo-black.svg';
