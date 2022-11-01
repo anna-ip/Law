@@ -2,6 +2,20 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { lightGreen, primaryText, secondaryBackground } from '../ui/styles';
 
+interface Style {
+  region: string;
+}
+
+interface TriageMapProps extends Style {
+  onClickLatinAmerica: () => void;
+  onClickNorthAmerica: () => void;
+  onClickEurope: () => void;
+  onClickAsiaPacific: () => void;
+  onClickMiddleEast: () => void;
+  onClickAfrica: () => void;
+  region: string;
+}
+
 export const TriageMap = ({
   onClickLatinAmerica,
   onClickNorthAmerica,
@@ -10,15 +24,16 @@ export const TriageMap = ({
   onClickMiddleEast,
   onClickAfrica,
   region,
-}) => {
+}: TriageMapProps) => {
   return (
     <Map
       width='55rem'
       viewBox='0 0 998 596'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
+      region={region}
     >
-      <g className='latinAmerica' onClick={onClickLatinAmerica} region={region}>
+      <g className='latinAmerica' onClick={onClickLatinAmerica}>
         <path
           fillRule='evenodd'
           clipRule='evenodd'
@@ -2805,7 +2820,7 @@ export const TriageMap = ({
   );
 };
 
-const Map = styled.svg`
+const Map = styled.svg<Style>`
   g {
     pointer-events: boundingBox;
   }
