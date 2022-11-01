@@ -1,6 +1,6 @@
 import { SurveyBackground } from '../../survey/SurveyBackground';
 import { Survey } from '../../survey/Survey';
-import { OnboardingButton } from '../../ui/button';
+import { OnboardingLink } from '../../ui/button';
 import { BackLink } from '../../survey/BackLink';
 
 const survey3 = [
@@ -25,7 +25,7 @@ export const Survey3 = () => {
       {survey3.map((survey, index) => (
         <Survey key={`survey-${index}`} index={index} survey={survey} />
       ))}
-      <OnboardingButton to={'/onboarding/4'} />
+      <OnboardingLink to={'/onboarding/4'} />
     </SurveyBackground>
   );
 };

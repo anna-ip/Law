@@ -18,7 +18,7 @@ import {
   activitieTable,
 } from './data';
 import { CustomSelect } from './CustomSelect';
-import { NotificationBtn } from '../../ui/button';
+import { Button } from '../../ui/button';
 import { AddCardLegalForm } from '../../form/legal/AddCardLegalForm';
 
 export const AddCard = ({ setAddCard, addCard, setUpdateDepartments }) => {
@@ -132,21 +132,23 @@ export const AddCard = ({ setAddCard, addCard, setUpdateDepartments }) => {
 
         <ButtonContainer>
           <ButtonWrapper>
-            <NotificationBtn
+            <Button
               onClick={handleCancel}
-              label='Cancel'
               inverted
               fontWeight={500}
               width='209px'
-            />
-            <NotificationBtn
+            >
+              Cancel
+            </Button>
+            <Button
               type='submit'
               onClick={handleSubmit}
-              label='Add department'
               fontWeight={500}
               width='209px'
               marginLeft={20}
-            />
+            >
+              Add department
+            </Button>
           </ButtonWrapper>
         </ButtonContainer>
       </form>

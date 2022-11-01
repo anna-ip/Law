@@ -18,12 +18,12 @@ export const InBetween = () => {
           </InfoTextWrapper>
 
           <ButtonWrapper>
-            <LinkButton label='Efficiency Audit' to={'/home'} />
-            <LinkButton
-              label='Triage System'
-              to={'/triage'}
-              backgroundcolor={green}
-            />
+            <LinkButton to={'/home'} width='294px'>
+              Efficiency Audit
+            </LinkButton>
+            <LinkButton to={'/triage'} backgroundColor={green} width='294px'>
+              Triage System
+            </LinkButton>
           </ButtonWrapper>
         </InnerContainer>
       </LoginContainer>

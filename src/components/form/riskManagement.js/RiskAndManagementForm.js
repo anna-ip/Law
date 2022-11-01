@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components/macro';
 import { DottedLine, lightBlue, primaryText } from '../../ui/styles';
-import { NotificationBtn } from '../../ui/button';
+import { Button } from '../../ui/button';
 import { LoadingSpinner } from '../LoadingSpinner';
 
 export const RiskAndManagementForm = ({ setIsEditing, setHasBeenEdited }) => {
@@ -79,23 +79,25 @@ export const RiskAndManagementForm = ({ setIsEditing, setHasBeenEdited }) => {
         <ButtonWrapper>
           {!processing && (
             <>
-              <NotificationBtn
+              <Button
                 onClick={handleCancel}
-                type='submit'
-                label='Cancel'
+                type='button'
                 inverted
                 fontWeight={500}
                 width='209px'
                 marginLeft={undefined}
-              />
-              <NotificationBtn
+              >
+                Cancel
+              </Button>
+              <Button
                 type='submit'
-                label='Process data'
                 fontWeight={500}
                 marginLeft={20}
                 width='209px'
                 onClick={undefined}
-              />
+              >
+                Process data
+              </Button>
             </>
           )}
           {processing && <LoadingSpinner />}

@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 import { Overlay } from './popUpComponents/Overlay';
 import { PopUp } from './popUpComponents/PopUp';
 import pen from '../../assets/images/pen-field.svg';
-import { NotificationBtn } from '../ui/button';
+import { Button } from '../ui/button';
 import { primaryText } from '../ui/styles';
 
 export const NotificationPopUp = ({ setIsModalOpen }) => {
@@ -38,7 +38,7 @@ export const NotificationPopUp = ({ setIsModalOpen }) => {
             </Info>
           </InfoWrapper>
           <ButtonWrapper>
-            <NotificationBtn label='Take survey' onClick={handleNavigate} />
+            <Button onClick={handleNavigate}>Take survey</Button>
           </ButtonWrapper>
         </Container>
       </PopUp>

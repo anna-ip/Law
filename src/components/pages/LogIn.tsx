@@ -1,15 +1,20 @@
+import React, { useState } from 'react';
 import {
   green,
   primaryGrey,
   secondaryBackground,
-  lightBlue,
+  // lightBlue,
   primaryText,
 } from '../ui/styles';
 import styled from 'styled-components';
 import { GoogleButton, LinkButton } from '../ui/button';
 import { ReactComponent as Logo } from '../../assets/images/logo-black.svg';
+import { TextInput } from '../ui/inputs/index';
 
 export const LogIn = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <Container>
       <LoginContainer>
@@ -18,10 +23,27 @@ export const LogIn = () => {
           <Title>Sign in to GLIS</Title>
           <InfoText>Please enter your details! </InfoText>
           <InputContainer>
-            <StyledLabel>Email</StyledLabel>
-            <StyledInput type='text' placeholder='example@example.com' />
-            <StyledLabel>Password</StyledLabel>
-            <StyledInput type='password' placeholder='*********' />
+            <TextInput
+              type='text'
+              label='Email'
+              value={email}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
+              placeholder='example@example.com'
+            />
+            <TextInput
+              type='password'
+              label='Password'
+              value={password}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
+              placeholder='*********'
+            />
+
+            {/* <StyledLabel>Password</StyledLabel>
+            <StyledInput type='password' placeholder='*********' /> */}
           </InputContainer>
           <CheckBoxContainer>
             <CheckBoxWrapper>
@@ -30,7 +52,7 @@ export const LogIn = () => {
             </CheckBoxWrapper>
             <ForgotButton>Forgot Password</ForgotButton>
           </CheckBoxContainer>
-          <LinkButton to={'/profileOption'} label='Sign In' />
+          <LinkButton to={'/profileOption'}>Sign In</LinkButton>
           <GoogleButton to={'/profileOption'} />
           <SignUpWrapper>
             <SignUpText>Don’t have an account?</SignUpText>
@@ -88,21 +110,21 @@ const InputContainer = styled.div`
   width: 100%;
 `;
 
-const StyledLabel = styled.label`
-  font-family: 'Inter';
-  font-weight: 400;
-  font-size: 1.25rem;
-  color: ${primaryText};
-  margin-top: 15px;
-`;
+// const StyledLabel = styled.label`
+//   font-family: 'Inter';
+//   font-weight: 400;
+//   font-size: 1.25rem;
+//   color: ${primaryText};
+//   margin-top: 15px;
+// `;
 
-const StyledInput = styled.input`
-  border: 1px solid ${lightBlue};
-  border-radius: 7px;
-  height: 40px;
-  margin-top: 5px;
-  padding: 1px 12px;
-`;
+// const StyledInput = styled.input`
+//   border: 1px solid ${lightBlue};
+//   border-radius: 7px;
+//   height: 40px;
+//   margin-top: 5px;
+//   padding: 1px 12px;
+// `;
 
 const CheckBoxContainer = styled.div`
   display: flex;

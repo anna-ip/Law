@@ -1,24 +1,40 @@
-import styled from 'styled-components';
-import { lightBlue, primaryText, secondaryBackground } from '../styles';
+import styled from 'styled-components/macro';
+import { lightBlue, primaryText } from '../styles';
 import magnifier from '../../../assets/images/magnifier.svg';
 
+type IconStyle = magnifier;
+type InputType = 'text' | 'password';
+
+interface TextInputProps {
+  type: InputType;
+  label?: String;
+  id?: String | Number;
+  name?: String;
+  placeholder: String;
+  value: String;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  icon?: IconStyle;
+  inputText?: ReactNode;
+}
+
 export const TextInput = ({
+  type,
   label,
   id,
   name,
   placeholder,
   value,
   onChange,
-  icon = magnifier,
+  icon,
   inputText,
-}) => {
+}: TextInputProps) => {
   return (
-    <InputContainer>
+    <>
       {label && <StyledLabel>{label}</StyledLabel>}
       {icon && <Icon src={icon} alt='Magnifier icon' />}
       <StyledInput>
         <Input
-          type='text'
+          type={type}
           id={id}
           name={name}
           value={value}
@@ -29,21 +45,9 @@ export const TextInput = ({
       </StyledInput>
 
       <StyledInput type='text' />
-    </InputContainer>
+    </>
   );
 };
-
-const InputContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  background-color: ${secondaryBackground};
-  border-radius: 12px;
-  border: 1px solid #dbdeeb;
-  width: 100%; /* Todo adjust so its responsive! */
-  height: 59px;
-  padding: 0 5px;
-  cursor: text;
-`;
 
 const StyledLabel = styled.label`
   font-family: 'Inter';

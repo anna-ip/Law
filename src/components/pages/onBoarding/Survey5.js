@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { SurveyBackground } from '../../survey/SurveyBackground';
 import { Survey } from '../../survey/Survey';
-import { OnboardingButton } from '../../ui/button';
+import { OnboardingLink } from '../../ui/button';
 import { useEffect, useState } from 'react';
 import { BackLink } from '../../survey/BackLink';
 
@@ -46,7 +46,7 @@ export const Survey5 = () => {
       {survey5.map((survey, index) => (
         <Survey key={`survey-${index}`} index={index} survey={survey} />
       ))}
-      <OnboardingButton to={handleNavigate(location)} />
+      <OnboardingLink to={handleNavigate(location)} />
     </SurveyBackground>
   );
 };

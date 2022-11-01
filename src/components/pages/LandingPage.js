@@ -4,7 +4,7 @@ import { ReactComponent as Logo } from '../../assets/images/logo-black.svg';
 import { ReactComponent as Cards } from '../../assets/images/landing-page.svg';
 import background from '../../assets/images/background.jpg';
 import { green, primaryBlue, primaryText } from '../ui/styles';
-import { GetStartedLink } from '../ui/button';
+import { LinkButton } from '../ui/button';
 
 export const LandingPage = () => {
   useEffect(() => {
@@ -43,7 +43,9 @@ export const LandingPage = () => {
               <SubTitle>
                 With the power of data measuring efficiency holistically now!
               </SubTitle>
-              <GetStartedLink label='Get started' to={'/logIn'} />
+              <LinkButton to={'/logIn'} width='180px'>
+                Get started
+              </LinkButton>
             </TextWrapper>
           </Column>
           <Column>

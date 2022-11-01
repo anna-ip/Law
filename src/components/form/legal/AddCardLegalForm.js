@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
 import { darkRed, lightBlue, primaryText } from '../../ui/styles';
-import { NotificationBtn } from '../../ui/button';
+import { Button } from '../../ui/button';
 
 export const AddCardLegalForm = ({ setIsEditing, addCard }) => {
   const [input] = useState();
@@ -169,20 +169,22 @@ export const AddCardLegalForm = ({ setIsEditing, addCard }) => {
         <ButtonContainer>
           <DeleteButton>Delete department</DeleteButton>}
           <ButtonWrapper>
-            <NotificationBtn
+            <Button
               onClick={handleCancel}
-              label='Cancel'
               inverted
               fontWeight={500}
               width='209px'
-            />
-            <NotificationBtn
+            >
+              Cancel
+            </Button>
+            <Button
               type='submit'
-              label='Save changes'
               fontWeight={500}
               marginLeft={20}
               width='209px'
-            />
+            >
+              Save changes
+            </Button>
           </ButtonWrapper>
         </ButtonContainer>
       )}

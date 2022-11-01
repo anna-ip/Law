@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyledButton } from '../../ui/button';
+import { Button } from '../../ui/button';
 import { secondaryBackground, text } from '../../ui/styles';
 import { Map } from './Map';
 
@@ -14,7 +14,9 @@ export const MapCard = ({ onClick }) => {
           take around 5 - 10 minutes to finish.
         </SubTitle>
       </TitleWrapper>
-      <StyledButton onClick={onClick} label='Take Survey' />
+      <Button onClick={onClick} width='294px' fontWeight={500} fontSize='20px'>
+        Take Survey
+      </Button>
     </Card>
   );
 };

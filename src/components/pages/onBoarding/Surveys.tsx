@@ -26,6 +26,6 @@ export const Surveys = () => {
       return <Survey5 />;
 
     default:
-      <Home />;
+      return <Home />;
   }
 };
