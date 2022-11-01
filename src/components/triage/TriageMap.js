@@ -13,12 +13,10 @@ export const TriageMap = ({
 }) => {
   return (
     <Map
-      width='998'
-      height='596'
+      width='55rem'
       viewBox='0 0 998 596'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      region={region}
     >
       <g className='latinAmerica' onClick={onClickLatinAmerica} region={region}>
         <path

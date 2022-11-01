@@ -9,13 +9,13 @@ import { Header } from '../Header';
 import { Region } from '../triage/Region';
 
 export const Triage = () => {
-  const [region, setRegion] = useState('');
+  const [region, setRegion] = useState<string>('');
 
   return (
     <Container>
       <HeaderContainer>
         <StyledLink to='/'>
-          <Logo alt='Logo' width='53px' height='56px' />
+          <Logo width='53px' height='56px' />
         </StyledLink>
         <HeaderWrapper>
           <Header />
@@ -30,7 +30,6 @@ export const Triage = () => {
           onClickNorthAmerica={() => setRegion('North America')}
           onClickLatinAmerica={() => setRegion('Latin America')}
           region={region}
-          setRegion={setRegion}
         />
         {region.length === 0 && (
           <>
@@ -54,6 +53,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 40px;
 `;
 
 const HeaderContainer = styled.div`
@@ -76,7 +76,7 @@ const MapContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 4.5rem;
+  margin-top: 4rem;
 `;
 
 const TitleWrapper = styled.div`
