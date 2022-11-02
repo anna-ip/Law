@@ -1,3 +1,4 @@
+import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components/macro';
 import {
   yellow,
@@ -7,6 +8,42 @@ import {
 } from '../../ui/styles';
 import exclamation from '../../../assets/images/exclamation.svg';
 import { Circle } from '../../ui/circle';
+
+interface StyledCardProps {
+  padding?: string;
+  cardWidth?: number;
+  justifyContent?: string;
+  margin?: string;
+  cardMaxWidth?: number;
+  cardHeight?: string;
+  cardMinHeight?: string;
+}
+
+interface StyledTitleContainerProps {
+  alignCircle?: string;
+  titlePadding?: string;
+}
+
+interface TitleWrapperProps {
+  wrapWidth?: string;
+}
+
+interface HomeCardProps
+  extends StyledCardProps,
+    StyledTitleContainerProps,
+    TitleWrapperProps {
+  title: string;
+  onClick?: () => void;
+  hasLevels?: boolean;
+  hasCircle?: boolean;
+  hasTabs?: boolean;
+  hasTitleWrap?: boolean;
+  circleBackground?: string;
+  icon?: string;
+  iconSize?: number;
+  circleSize?: number;
+}
+
 export const HomeCard = ({
   hasLevels = false,
   hasCircle = true,
@@ -22,7 +59,6 @@ export const HomeCard = ({
   iconSize = 5,
   circleSize = 24,
   alignCircle,
-  onClickInfo,
   padding,
   cardWidth,
   cardMaxWidth,
@@ -30,7 +66,7 @@ export const HomeCard = ({
   cardMinHeight,
   margin,
   justifyContent,
-}) => {
+}: PropsWithChildren<HomeCardProps>) => {
   return (
     <CardContainer
       padding={padding}
@@ -70,11 +106,10 @@ export const HomeCard = ({
   );
 };
 
-const CardContainer = styled.div`
+const CardContainer = styled.div<StyledCardProps>`
   display: flex;
   flex-direction: column;
-  justify-content: ${(props) =>
-    props.justifyContent ? `${props.justifyContent}` : ''};
+  justify-content: ${(props) => props.justifyContent};
   padding: ${(props) =>
     props.padding ? `${props.padding}` : '27px 28px 36px 35px'};
   margin: ${(props) => (props.margin ? `${props.margin}` : 0)};
@@ -90,7 +125,7 @@ const CardContainer = styled.div`
   }
 `;
 
-const TitleContainer = styled.div`
+const TitleContainer = styled.div<StyledTitleContainerProps>`
   display: flex;
   flex-direction: row;
   align-items: ${(props) =>
@@ -100,7 +135,7 @@ const TitleContainer = styled.div`
   padding: ${(props) => (props.titlePadding ? `${props.titlePadding}` : 0)};
 `;
 
-const TitleWrapper = styled.div`
+const TitleWrapper = styled.div<TitleWrapperProps>`
   width: ${(props) => props.wrapWidth};
 `;
 

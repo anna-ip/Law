@@ -1,6 +1,11 @@
 import React from 'react';
 
-export const ProjectChart = ({ width, height }) => {
+interface ProjectChartProps {
+  width: string;
+  height: string;
+}
+
+export const ProjectChart = ({ width, height }: ProjectChartProps) => {
   return (
     <svg
       width={width}

@@ -5,3 +5,4 @@ export { OptimizationTracker } from './OptimizationTracker';
 export { RiskAndOps } from './RiskAndOps';
 export { SpendAndComplexity } from './SpendAndComplexity';
 export { ProjectTracker } from './ProjectTracker';
+export { CardView } from './CardView';

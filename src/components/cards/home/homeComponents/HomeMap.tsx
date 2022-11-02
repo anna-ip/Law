@@ -1,6 +1,11 @@
 import React from 'react';
 
-export const HomeMap = ({ width, height }) => {
+interface HomeMapProps {
+  width: number;
+  height: number;
+}
+
+export const HomeMap = ({ width, height }: HomeMapProps) => {
   return (
     <svg
       width={width}

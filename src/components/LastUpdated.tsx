@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { primaryText } from './ui/styles';
 
-export const LastUpdated = ({ updatedDate }) => {
+export const LastUpdated = () => {
   const [updated] = useState(() => {
     const data = window.localStorage.getItem('DATE');
     return data !== null ? JSON.parse(data) : '';

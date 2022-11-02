@@ -20,8 +20,8 @@ export const LegalOperationModel = () => {
         title='Legal Operating Model'
         circleBackground={greenNeon}
         icon={check}
-        iconSize='16'
-        circleSize='26'
+        iconSize={16}
+        circleSize={26}
         alignCircle='flex-start'
         hasTitleWrap
         padding='27px 0px 0px 35px'

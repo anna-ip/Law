@@ -12,8 +12,8 @@ export const SpendOverview = () => {
       title='Spend Overview'
       circleBackground={orange}
       icon={exclamation}
-      iconSize='4'
-      circleSize='26'
+      iconSize={4}
+      circleSize={26}
       cardHeight='100%'
       justifyContent='space-between'
     >

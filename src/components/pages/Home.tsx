@@ -5,15 +5,7 @@ import { Header } from '../Header';
 import { NavLink } from '../navLink/NavLink';
 import { MapCard } from '../cards/map/MapCard';
 import { LastUpdated } from '../LastUpdated';
-import {
-  RegionalOverview,
-  ProjectTracker,
-  SpendAndComplexity,
-  RiskAndOps,
-  LegalOperationModel,
-  SpendOverview,
-  OptimizationTracker,
-} from '../cards/home';
+import { CardView } from '../cards/home';
 
 export const Home = () => {
   const [updated, setUpdated] = useState('');
@@ -53,23 +45,7 @@ export const Home = () => {
         ) : (
           <HomeContainer>
             {!firstVisit && <LastUpdated />}
-            <InnerContainer>
-              <LeftColumn>
-                <RegionalOverview />
-                <ProjectTracker />
-                <Row>
-                  <SpendAndComplexity />
-                  <RiskAndOps />
-                </Row>
-              </LeftColumn>
-              <RightColumn>
-                <RightWrapper>
-                  <LegalOperationModel />
-                  <SpendOverview />
-                  <OptimizationTracker />
-                </RightWrapper>
-              </RightColumn>
-            </InnerContainer>
+            <CardView />
           </HomeContainer>
         )}
       </RightContainer>
@@ -93,48 +69,10 @@ const RightContainer = styled.div`
 const MapContainer = styled.div`
   display: flex;
   flex-direction: row;
-  /* margin-bottom: 40px; */
 `;
 
 const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
-`;
-
-const InnerContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-top: 10px;
-`;
-
-const LeftColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0px 35px 0 0;
-  width: 70%;
-  justify-content: space-between;
-  gap: 32px;
-  margin: 0;
-`;
-
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
-`;
-
-const RightColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-`;
-
-const RightWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
-  gap: 32px;
 `;

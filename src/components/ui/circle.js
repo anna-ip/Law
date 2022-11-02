@@ -1,5 +1,15 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { softBlack } from './styles';
+
+interface CircleProps {
+  text?: string;
+  textSize?: number;
+  icon?: string;
+  iconSize?: number;
+  altText?: string;
+  size?: number;
+  bg?: string;
+}
 
 export const Circle = ({
   text,
@@ -9,7 +19,7 @@ export const Circle = ({
   bg,
   size,
   altText,
-}) => {
+}: CircleProps) => {
   return (
     <CircleContainer bg={bg} size={size}>
       {text && <CircleText textSize={textSize}>{text}</CircleText>}

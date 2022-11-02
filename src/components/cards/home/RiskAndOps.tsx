@@ -11,8 +11,8 @@ export const RiskAndOps = () => {
       <HomeCard
         title='Risks & OPS'
         icon={check}
-        iconSize='16'
-        circleSize='26'
+        iconSize={16}
+        circleSize={26}
         circleBackground={greenNeon}
         padding='27px 28px 20px 35px'
         cardMinHeight='184px'

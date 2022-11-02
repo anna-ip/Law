@@ -15,8 +15,8 @@ export const SpendAndComplexity = () => {
         hasTitleWrap
         wrapWidth='90%'
         icon={check}
-        iconSize='16'
-        circleSize='26'
+        iconSize={16}
+        circleSize={26}
         alignCircle='flex-start'
         circleBackground={greenNeon}
         padding='27px 28px 20px 35px'

@@ -7,8 +7,8 @@ import { ReactComponent as Plus } from '../../../assets/images/plus.svg';
 import { secondaryBackground } from '../../ui/styles';
 
 export const RegionalOverview = () => {
-  const [mapWidth, setMapWidth] = useState('635');
-  const [mapHeight, setMapHeight] = useState('380');
+  const [mapWidth, setMapWidth] = useState(635);
+  const [mapHeight, setMapHeight] = useState(380);
 
   const handleExpand = () => {
     setMapWidth(mapWidth * 1.1);
