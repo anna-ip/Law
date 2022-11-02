@@ -93,7 +93,7 @@ const RightContainer = styled.div`
 const MapContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 `;
 
 const HomeContainer = styled.div`

@@ -3,7 +3,11 @@ import { Button } from '../../ui/button';
 import { secondaryBackground, text } from '../../ui/styles';
 import { Map } from './Map';
 
-export const MapCard = ({ onClick }) => {
+interface MapCardProps {
+  onClick: () => void;
+}
+
+export const MapCard = ({ onClick }: MapCardProps) => {
   return (
     <Card>
       <Map />
@@ -14,7 +18,7 @@ export const MapCard = ({ onClick }) => {
           take around 5 - 10 minutes to finish.
         </SubTitle>
       </TitleWrapper>
-      <Button onClick={onClick} width='294px' fontWeight={500} fontSize='20px'>
+      <Button onClick={onClick} width='294px' fontWeight={500}>
         Take Survey
       </Button>
     </Card>
@@ -29,8 +33,8 @@ const Card = styled.div`
   background-color: ${secondaryBackground};
   border-radius: 20px;
   width: 100%;
-  padding: 165px 0;
-  margin: 80px 0 50px 0;
+  padding: 7% 0 4% 0;
+  margin: 64px 0 0 0;
 `;
 
 const TitleWrapper = styled.div`
