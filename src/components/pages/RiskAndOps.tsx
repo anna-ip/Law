@@ -1,16 +1,20 @@
 import styled from 'styled-components/macro';
-import { SpendLevelCard } from '../cards/spend/SpendLevelCard';
-import { ComplexityCard } from '../cards/spend/index';
+import {
+  Materialized,
+  RiskManagement,
+  RiskAndOpportunities,
+} from '../cards/risk/index';
 import { PageBase } from './pageComponents/PageBase';
 
-export const Complexity = () => {
+export const RiskAndOps = () => {
   return (
     <PageBase>
       <CardColumn>
-        <SpendLevelCard />
+        <RiskAndOpportunities />
       </CardColumn>
       <CardColumn>
-        <ComplexityCard />
+        <Materialized />
+        <RiskManagement />
       </CardColumn>
     </PageBase>
   );

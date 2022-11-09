@@ -7,7 +7,6 @@ import {
   lightGrey,
   primaryText,
 } from '../../ui/styles';
-
 import exclamation from '../../../assets/images/exclamation.svg';
 import { RiskForm } from '../../form/risk/RiskForm';
 import { RiskTable } from '../../form/risk/RiskTable';

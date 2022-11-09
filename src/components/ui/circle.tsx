@@ -28,7 +28,7 @@ export const Circle = ({
   );
 };
 
-const CircleContainer = styled.div`
+const CircleContainer = styled.div<CircleProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,7 +38,7 @@ const CircleContainer = styled.div`
   background-color: ${(props) => (props.bg ? `${props.bg}` : `${softBlack}`)};
 `;
 
-const CircleText = styled.p`
+const CircleText = styled.p<CircleProps>`
   color: #ffffff;
   font-size: ${(props) => (props.textSize ? `${props.textSize}px` : `${16}px`)};
   font-family: 'Poppins';

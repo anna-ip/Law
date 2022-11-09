@@ -4,25 +4,30 @@ import { DottedLine, lightBlue, primaryText } from '../../ui/styles';
 import { Button } from '../../ui/button';
 import { LoadingSpinner } from '../LoadingSpinner';
 
-export const RiskForm = ({ setIsEditing, setHasBeenEdited }) => {
+interface RiskFormProps {
+  setIsEditing: (isEditing: boolean) => void;
+  setHasBeenEdited: (hasBeenEdited: boolean) => void;
+}
+
+export const RiskForm = ({ setIsEditing, setHasBeenEdited }: RiskFormProps) => {
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   const [input3, setInput3] = useState('');
   const [processing, setProcessing] = useState(false);
 
-  const handleInput1 = (e) => {
+  const handleInput1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     value.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     setInput1(value);
   };
-  const handleInput2 = (e) => {
+  const handleInput2 = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput2(e.target.value);
   };
-  const handleInput3 = (e) => {
+  const handleInput3 = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput3(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setProcessing(true);
 
@@ -100,7 +105,7 @@ export const RiskForm = ({ setIsEditing, setHasBeenEdited }) => {
                 fontWeight={500}
                 marginLeft={20}
                 width='209px'
-                onClick={undefined}
+                onClick={handleSubmit}
               >
                 Process data
               </Button>

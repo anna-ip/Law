@@ -8,10 +8,16 @@ import { ReactComponent as Chart } from '../../assets/images/chart-risk.svg';
 import { Overlay } from './popUpComponents/Overlay';
 import { PopUp } from './popUpComponents/PopUp';
 
-export const RiskPopUp = ({ setIsOpen }) => {
+interface RiskPopUpProps {
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+export const RiskPopUp = ({ setIsOpen }: RiskPopUpProps) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    return () => (document.body.style.overflow = 'unset');
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, []);
 
   return (
@@ -33,7 +39,7 @@ export const RiskPopUp = ({ setIsOpen }) => {
             </Info>
           </InfoWrapper>
           <ImageWrapper>
-            <Chart alt='Risk level benchmark' />
+            <Chart />
           </ImageWrapper>
           <ImageInfo>
             *Based on a use case/client project, total revenue EMEA *5Bill,
