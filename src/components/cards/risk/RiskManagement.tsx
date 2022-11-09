@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { yellow } from '../../ui/styles';
 import exclamation from '../../../assets/images/exclamation.svg';
-import { RiskForm } from '../../form/risk/RiskForm';
-import { RiskTable } from '../../form/risk/RiskTable';
-import { RiskPopUp } from '../../popUp/RiskPopUp';
+import { RiskAndManagementTable } from '../../form/riskManagement.js/RiskAndManagementTable';
+import { RiskAndManagementForm } from '../../form/riskManagement.js/RiskAndManagementForm';
+import { RiskManagementPopUp } from '../../popUp/RiskManagementPopUp';
 import { Card } from '../cardComponents';
 
-export const RiskAndOpportunities = () => {
+export const RiskManagement = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [hasBeenEdited, setHasBeenEdited] = useState(false);
 
-  const handleOpenModal = () => {
-    setIsOpen(true);
-  };
-
   const handleEdit = () => {
     setIsEditing(true);
+  };
+
+  const handleOpenModal = () => {
+    setIsOpen(true);
   };
 
   useEffect(() => {
@@ -28,25 +28,24 @@ export const RiskAndOpportunities = () => {
   return (
     <>
       <Card
-        title='Risk & opportunities'
+        title='Risk management performance'
+        circleBackground={yellow}
         icon={exclamation}
         iconSize={4}
-        circleSize={24}
-        circleBackground={yellow}
-        onClickInfo={handleOpenModal}
-        onClick={handleEdit}
         isEditing={isEditing}
+        onClick={handleEdit}
         hasBeenEdited={hasBeenEdited}
+        onClickInfo={handleOpenModal}
       >
-        {!isEditing && <RiskTable />}
+        {!isEditing && <RiskAndManagementTable />}
         {isEditing && (
-          <RiskForm
+          <RiskAndManagementForm
             setIsEditing={setIsEditing}
             setHasBeenEdited={setHasBeenEdited}
           />
         )}
       </Card>
-      {isOpen && <RiskPopUp setIsOpen={setIsOpen} />}
+      {isOpen && <RiskManagementPopUp setIsOpen={setIsOpen} />}
     </>
   );
 };

@@ -1,28 +1,34 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import styled from 'styled-components/macro';
-import { DottedLine, lightBlue, text } from '../../ui/styles';
+import { DottedLine, lightBlue, primaryText } from '../../ui/styles';
 import { Button } from '../../ui/button';
 import { LoadingSpinner } from '../LoadingSpinner';
 
-export const CostForm = ({
+interface ManagementFormProps {
+  setIsEditing: (isEditing: boolean) => void;
+  setHasBeenEdited: (hasBeenEdited: boolean) => void;
+}
+
+export const RiskAndManagementForm = ({
   setIsEditing,
   setHasBeenEdited,
-  setShowGreenLevel,
-}) => {
+}: ManagementFormProps) => {
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
+  const [input3, setInput3] = useState('');
   const [processing, setProcessing] = useState(false);
 
-  const handleInput1 = (e) => {
-    const value = e.target.value;
-    value.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    setInput1(value);
+  const handleInput1 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput1(e.target.value);
   };
-  const handleInput2 = (e) => {
+  const handleInput2 = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput2(e.target.value);
   };
+  const handleInput3 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput3(e.target.value);
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setProcessing(true);
 
@@ -30,7 +36,6 @@ export const CostForm = ({
       setProcessing(false);
       setIsEditing(false);
       setHasBeenEdited(true);
-      setShowGreenLevel(true);
     }, 2000);
   };
 
@@ -42,30 +47,41 @@ export const CostForm = ({
     <Container>
       <FormContainer onSubmit={handleSubmit}>
         <Row>
-          <StyledLabel>Total materialized cost</StyledLabel>
+          <StyledLabel>Trainings</StyledLabel>
           <StyledInput>
             <Input
               type='text'
               value={input1}
               name='input1'
               onChange={handleInput1}
-              placeholder='450 800'
+              placeholder='10'
             />
-            <Currency>€</Currency>
           </StyledInput>
         </Row>
         <DottedLine />
         <Row>
-          <StyledLabel>Total materialized hypothetical cost</StyledLabel>
+          <StyledLabel>Investigations & litigations</StyledLabel>
           <StyledInput>
             <Input
               type='text'
               value={input2}
               name='input2'
               onChange={handleInput2}
-              placeholder='50 400 000'
+              placeholder='25'
             />
-            <Currency>€</Currency>
+          </StyledInput>
+        </Row>
+        <DottedLine />
+        <Row>
+          <StyledLabel>Audits</StyledLabel>
+          <StyledInput>
+            <Input
+              type='text'
+              value={input3}
+              name='input2'
+              onChange={handleInput3}
+              placeholder='8'
+            />
           </StyledInput>
         </Row>
         <ButtonWrapper>
@@ -73,10 +89,10 @@ export const CostForm = ({
             <>
               <Button
                 onClick={handleCancel}
+                type='button'
                 inverted
                 fontWeight={500}
                 width='209px'
-                marginLeft={undefined}
               >
                 Cancel
               </Button>
@@ -85,7 +101,7 @@ export const CostForm = ({
                 fontWeight={500}
                 marginLeft={20}
                 width='209px'
-                onClick={undefined}
+                onClick={handleSubmit}
               >
                 Process data
               </Button>
@@ -100,6 +116,7 @@ export const CostForm = ({
 
 const Container = styled.div`
   width: 100%;
+  padding-bottom: 20px;
 `;
 
 const FormContainer = styled.form`
@@ -126,12 +143,12 @@ const StyledInput = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 182px;
+  justify-content: center;
+  width: 115px;
   height: 43px;
   border: 1px solid ${lightBlue};
   border-radius: 10px;
   margin-left: 10px;
-  padding-right: 19px;
 `;
 
 const Input = styled.input`
@@ -139,26 +156,20 @@ const Input = styled.input`
   font-weight: 500;
   font-size: 16px;
   width: 100%;
-  text-align: end;
-  color: ${text};
+  text-align: center;
+  color: ${primaryText};
   border-style: none;
   ::placeholder {
     font-family: 'Inter';
     font-weight: 500;
     font-size: 16px;
-    color: ${text};
+    color: ${primaryText};
+    text-align: center;
   }
   :focus {
     outline: none;
     border-color: none;
   }
-`;
-
-const Currency = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
-  font-size: 16px;
-  color: ${text};
 `;
 
 const ButtonWrapper = styled.div`

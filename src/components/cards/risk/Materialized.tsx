@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { yellow } from '../../ui/styles';
-import exclamation from '../../../assets/images/exclamation.svg';
-import { RiskForm } from '../../form/risk/RiskForm';
-import { RiskTable } from '../../form/risk/RiskTable';
-import { RiskPopUp } from '../../popUp/RiskPopUp';
+import { useState, useEffect } from 'react';
+import { greenNeon } from '../../ui/styles';
+import check from '../../../assets/images/check.svg';
+import { CostTable } from '../../form/materialized/CostTable';
+import { CostForm } from '../../form/materialized/CostForm';
+import { MaterializedPopUp } from '../../popUp/MaterializedPopUp';
 import { Card } from '../cardComponents';
 
-export const RiskAndOpportunities = () => {
+export const Materialized = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [hasBeenEdited, setHasBeenEdited] = useState(false);
 
-  const handleOpenModal = () => {
-    setIsOpen(true);
-  };
-
   const handleEdit = () => {
     setIsEditing(true);
+  };
+
+  const handleOpenModal = () => {
+    setIsOpen(true);
   };
 
   useEffect(() => {
@@ -28,25 +28,24 @@ export const RiskAndOpportunities = () => {
   return (
     <>
       <Card
-        title='Risk & opportunities'
-        icon={exclamation}
-        iconSize={4}
+        title='Materialized cost'
         circleSize={24}
-        circleBackground={yellow}
+        icon={check}
+        circleBackground={greenNeon}
         onClickInfo={handleOpenModal}
         onClick={handleEdit}
-        isEditing={isEditing}
         hasBeenEdited={hasBeenEdited}
+        isEditing={isEditing}
       >
-        {!isEditing && <RiskTable />}
+        {!isEditing && <CostTable />}
         {isEditing && (
-          <RiskForm
+          <CostForm
             setIsEditing={setIsEditing}
             setHasBeenEdited={setHasBeenEdited}
           />
         )}
       </Card>
-      {isOpen && <RiskPopUp setIsOpen={setIsOpen} />}
+      {isOpen && <MaterializedPopUp setIsOpen={setIsOpen} />}
     </>
   );
 };

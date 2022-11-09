@@ -8,10 +8,16 @@ import { ReactComponent as Icon } from '../../assets/images/bulls-eye.svg';
 import { Overlay } from './popUpComponents/Overlay';
 import { PopUp } from './popUpComponents/PopUp';
 
-export const MaterializedPopUp = ({ setIsOpen }) => {
+interface PopUpProps {
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+export const MaterializedPopUp = ({ setIsOpen }: PopUpProps) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    return () => (document.body.style.overflow = 'unset');
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, []);
 
   return (
