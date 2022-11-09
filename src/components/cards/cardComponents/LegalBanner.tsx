@@ -1,13 +1,18 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { Circle } from '../../ui/circle';
-import { Banner } from './Banner';
+import { Banner } from './index';
 import { green, white } from '../../ui/styles';
 import check from '../../../assets/images/check.svg';
 import clock from '../../../assets/images/clock.svg';
 import user from '../../../assets/images/user.svg';
 
-export const LegalBanner = ({ employee, hours }) => {
+interface LegalBannerProps {
+  employee: number;
+  hours: string;
+}
+
+export const LegalBanner = ({ employee, hours }: LegalBannerProps) => {
   return (
     <Banner radius={20}>
       <Container>

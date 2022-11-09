@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, SyntheticEvent } from 'react';
 import styled from 'styled-components/macro';
 import { white, text, black, softBlack, secondaryBackground } from './styles';
 import logo from '../../assets/images/google.png';
@@ -124,7 +124,7 @@ interface ButtonLabelProps {
 
 interface ButtonProps extends ButtonLabelProps {
   type?: ButtonType;
-  onClick: () => void;
+  onClick: (e: SyntheticEvent) => void;
   width?: string;
   marginLeft?: number;
 }

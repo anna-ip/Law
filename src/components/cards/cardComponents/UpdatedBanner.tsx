@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { white } from '../../ui/styles';
-import { Banner } from './Banner';
+import { Banner } from './index';
 
 export const UpdatedBanner = () => {
   return (

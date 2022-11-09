@@ -4,54 +4,62 @@ import { DottedLine, lightBlue, primaryText } from '../../ui/styles';
 import { Button } from '../../ui/button';
 import { LoadingSpinner } from '../LoadingSpinner';
 
-export const SpendLevelForm = ({ setIsEditing, setHasBeenEdited }) => {
-  const [input1, setInput1] = useState('');
-  const [input2, setInput2] = useState('');
-  const [input3, setInput3] = useState('');
-  const [input4, setInput4] = useState('');
-  const [input5, setInput5] = useState('');
-  const [input6, setInput6] = useState('');
-  const [input7, setInput7] = useState('');
-  const [input8, setInput8] = useState('');
-  const [processing, setProcessing] = useState(false);
+interface SpendLevelFormProps {
+  setIsEditing: (isEditing: boolean) => void;
+  setHasBeenEdited: (hasBeenEdited: boolean) => void;
+}
 
-  const handleInput1 = (e) => {
+export const SpendLevelForm = ({
+  setIsEditing,
+  setHasBeenEdited,
+}: SpendLevelFormProps) => {
+  const [input1, setInput1] = useState<string>('');
+  const [input2, setInput2] = useState<string>('');
+  const [input3, setInput3] = useState<string>('');
+  const [input4, setInput4] = useState<string>('');
+  const [input5, setInput5] = useState<string>('');
+  const [input6, setInput6] = useState<string>('');
+  const [input7, setInput7] = useState<string>('');
+  const [input8, setInput8] = useState<string>('');
+  const [processing, setProcessing] = useState<boolean>(false);
+
+  const handleInput1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     value.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     setInput1(value);
   };
 
-  const handleInput2 = (e) => {
+  const handleInput2 = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput2(e.target.value);
   };
 
-  const handleInput3 = (e) => {
+  const handleInput3 = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput3(e.target.value);
   };
 
-  const handleInput4 = (e) => {
+  const handleInput4 = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput4(e.target.value);
   };
 
-  const handleInput5 = (e) => {
+  const handleInput5 = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     value.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     setInput5(value);
   };
 
-  const handleInput6 = (e) => {
+  const handleInput6 = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput6(e.target.value);
   };
 
-  const handleInput7 = (e) => {
+  const handleInput7 = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput7(e.target.value);
   };
 
-  const handleInput8 = (e) => {
+  const handleInput8 = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput8(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setProcessing(true);
 
@@ -65,6 +73,7 @@ export const SpendLevelForm = ({ setIsEditing, setHasBeenEdited }) => {
   const handleCancel = () => {
     setIsEditing(false);
   };
+
   return (
     <Container>
       <FormContainer onSubmit={handleSubmit}>
@@ -199,7 +208,7 @@ export const SpendLevelForm = ({ setIsEditing, setHasBeenEdited }) => {
                 fontWeight={500}
                 marginLeft={20}
                 width='209px'
-                onClick={undefined}
+                onClick={handleSubmit}
               >
                 Process data
               </Button>

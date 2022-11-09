@@ -1,6 +1,17 @@
+import { PropsWithChildren } from 'react';
 import styled from 'styled-components/macro';
 import { secondaryBackground, white } from '../../ui/styles';
 import { ReactComponent as CloseIcon } from '../../../assets/images/close-grey.svg';
+
+interface PopUpProps {
+  positionTop?: string;
+  positionLeft?: string;
+  positionRight?: string;
+  width?: string;
+  maxWidth?: string;
+  arrowPosition?: string;
+  topArrow?: boolean;
+}
 
 export const PopUp = ({
   children,
@@ -11,7 +22,7 @@ export const PopUp = ({
   maxWidth,
   arrowPosition,
   topArrow = true,
-}) => {
+}: PropsWithChildren<PopUpProps>) => {
   return (
     <Container
       positionTop={positionTop}
@@ -33,7 +44,7 @@ export const PopUp = ({
   );
 };
 
-const Container = styled.div`
+const Container = styled.div<PopUpProps>`
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -54,7 +65,7 @@ const Container = styled.div`
   padding: 15px;
 `;
 
-const TooltipArrow = styled.div`
+const TooltipArrow = styled.div<PopUpProps>`
   display: block;
   position: absolute;
   top: -30px;

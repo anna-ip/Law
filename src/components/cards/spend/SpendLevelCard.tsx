@@ -7,9 +7,9 @@ import { LegalPopUp } from '../../popUp';
 import { SpendLevelForm } from '../../form/spendLevel/SpendLevelForm';
 
 export const SpendLevelCard = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-  const [hasBeenEdited, setHasBeenEdited] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [hasBeenEdited, setHasBeenEdited] = useState<boolean>(false);
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -46,7 +46,7 @@ export const SpendLevelCard = () => {
           />
         )}
       </Card>
-      {isOpen && <LegalPopUp setIsOpen={setIsOpen} />}
+      {isOpen && <LegalPopUp setIsOpen={setIsOpen} isOpen={isOpen} />}
     </>
   );
 };

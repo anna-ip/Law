@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { Circle } from '../ui/circle';
 import { primaryText, yellow } from '../ui/styles';
@@ -9,11 +9,19 @@ import { ReactComponent as ChartThree } from '../../assets/images/chart-3.svg';
 import { Overlay } from './popUpComponents/Overlay';
 import { PopUp } from './popUpComponents/PopUp';
 
-export const LegalPopUp = ({ setIsOpen }) => {
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => (document.body.style.overflow = 'unset');
-  }, []);
+interface LegalPopUpProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+export const LegalPopUp = ({ setIsOpen, isOpen }: LegalPopUpProps) => {
+  isOpen
+    ? (document.body.style.overflow = 'hidden')
+    : (document.body.style.overflow = 'unset');
+  // useEffect(() => {
+  //   document.body.style.overflow = 'hidden';
+  //   return () => (document.body.style.overflow = 'unset');
+  // }, []);
 
   return (
     <Overlay onClick={() => setIsOpen(false)}>
@@ -35,9 +43,9 @@ export const LegalPopUp = ({ setIsOpen }) => {
             </Info>
           </InfoWrapper>
           <ImageWrapper>
-            <ChartOne alt='Risk level benchmark' />
-            <ChartTwo alt='Risk level benchmark' />
-            <ChartThree alt='Risk level benchmark' />
+            <ChartOne />
+            <ChartTwo />
+            <ChartThree />
           </ImageWrapper>
           <ImageInfo>
             *ACC Global Legal Department Benchmarking Report 2019 (pp. 8-9)

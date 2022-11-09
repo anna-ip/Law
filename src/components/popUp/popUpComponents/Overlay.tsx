@@ -1,6 +1,14 @@
 import styled from 'styled-components/macro';
+import { PropsWithChildren } from 'react';
 
-export const Overlay = ({ children, onClick }) => {
+interface OverlayProps {
+  onClick?: () => void;
+}
+
+export const Overlay = ({
+  children,
+  onClick,
+}: PropsWithChildren<OverlayProps>) => {
   return <StyledOverLay onClick={onClick}>{children}</StyledOverLay>;
 };
 

@@ -1,11 +1,19 @@
+import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components/macro';
 import { primaryBlue } from '../../ui/styles';
 
-export const Banner = ({ children, radius }) => {
+interface BannerProps {
+  radius?: number;
+}
+
+export const Banner = ({
+  children,
+  radius,
+}: PropsWithChildren<BannerProps>) => {
   return <Updated radius={radius}>{children}</Updated>;
 };
 
-const Updated = styled.div`
+const Updated = styled.div<BannerProps>`
   display: flex;
   align-items: center;
   background-color: ${primaryBlue};

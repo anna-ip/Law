@@ -16,7 +16,7 @@ export const LegalCardGroup = () => {
     return previousValue + Number(currentValue.employee);
   }, 0);
 
-  console.log('cards:', departments);
+  console.log(typeof totalOfEmployees);
 
   return (
     <>

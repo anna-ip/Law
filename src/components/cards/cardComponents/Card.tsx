@@ -1,3 +1,4 @@
+import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components/macro';
 import {
   yellow,
@@ -8,15 +9,44 @@ import {
 } from '../../ui/styles';
 import exclamation from '../../../assets/images/exclamation.svg';
 import { Circle } from '../../ui/circle';
-import { UpdatedBanner } from './UpdatedBanner';
+
 import { ReactComponent as Level } from '../../../assets/images/level.svg';
 import { ReactComponent as OrangeLevel } from '../../../assets/images/level-orange.svg';
+import { UpdatedBanner } from './UpdatedBanner';
+
+interface CardContainerProps {
+  margin?: string;
+}
+
+interface TitleWrapperProps {
+  alignTitle?: string;
+}
+
+interface CardProps extends CardContainerProps, TitleWrapperProps {
+  isEditing: boolean;
+  hasBeenEdited: boolean;
+  hasInfoButton?: boolean;
+  hasLevels?: boolean;
+  hasEditedLevels?: boolean;
+  hasCircle?: boolean;
+  hasLine?: boolean;
+  hasEditButton?: boolean;
+  onClick?: () => void;
+  title: string;
+  hasWrapTitle?: boolean;
+  circleBackground?: string;
+  icon?: string;
+  iconSize?: number;
+  circleSize?: number;
+  onClickInfo?: () => void;
+}
+
 export const Card = ({
   isEditing,
   hasBeenEdited,
   hasInfoButton = true,
   hasLevels = false,
-  hasEditiedLevels,
+  hasEditedLevels,
   hasCircle = true,
   hasLine = true,
   hasEditButton = true,
@@ -31,7 +61,7 @@ export const Card = ({
   circleSize = 24,
   onClickInfo,
   margin,
-}) => {
+}: PropsWithChildren<CardProps>) => {
   return (
     <CardContainer margin={margin}>
       <TitleContainer>
@@ -69,13 +99,13 @@ export const Card = ({
           <EditButton onClick={onClick}>Edit</EditButton>
         )}
       </TitleContainer>
-      {hasLevels && !isEditing && !hasEditiedLevels && (
+      {hasLevels && !isEditing && !hasEditedLevels && (
         <LevelWrapper>
           <Level />
           <LevelText>4 / 5</LevelText>
         </LevelWrapper>
       )}
-      {hasLevels && !isEditing && hasEditiedLevels && (
+      {hasLevels && !isEditing && hasEditedLevels && (
         <LevelWrapper>
           <OrangeLevel />
           <LevelText>3 / 5</LevelText>
@@ -93,7 +123,7 @@ export const Card = ({
   );
 };
 
-const CardContainer = styled.div`
+const CardContainer = styled.div<CardContainerProps>`
   display: flex;
   flex-direction: column;
   padding: 20px 20px 0px 20px;
@@ -112,7 +142,7 @@ const TitleContainer = styled.div`
   margin-bottom: 8px;
 `;
 
-const TitleWrapper = styled.div`
+const TitleWrapper = styled.div<TitleWrapperProps>`
   display: flex;
   flex-direction: row;
   align-items: ${(props) =>
