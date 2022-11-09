@@ -9,18 +9,18 @@ const survey1 = [
   {
     question: 'What is your Industry?',
     answer: [
-      { id: 1, label: 'Automotive' },
-      { id: 2, label: 'Aviation' },
-      { id: 4, label: 'Banking' },
-      { id: 5, label: 'Chemical' },
-      { id: 6, label: 'Crypto Currency' },
-      { id: 7, label: 'Finance' },
-      { id: 8, label: 'FMCG' },
-      { id: 9, label: 'Pharmaceutical' },
-      { id: 10, label: 'Retail Business' },
-      { id: 11, label: 'Technology' },
-      { id: 12, label: 'White Goods' },
-      { id: 13, label: 'Other' },
+      { id: '1', label: 'Automotive' },
+      { id: '2', label: 'Aviation' },
+      { id: '4', label: 'Banking' },
+      { id: '6', label: 'Crypto Currency' },
+      { id: '5', label: 'Chemical' },
+      { id: '7', label: 'Finance' },
+      { id: '8', label: 'FMCG' },
+      { id: '9', label: 'Pharmaceutical' },
+      { id: '10', label: 'Retail Business' },
+      { id: '11', label: 'Technology' },
+      { id: '12', label: 'White Goods' },
+      { id: '13', label: 'Other' },
     ],
   },
 ];
@@ -44,7 +44,7 @@ export const Survey1 = () => {
 
   return (
     <SurveyBackground>
-      <BackLink to={handleNavigate(location)}>QUESTION 1/5</BackLink>
+      <BackLink to={handleNavigate()}>QUESTION 1/5</BackLink>
       {survey1.map((survey, index) => (
         <Survey key={`survey-${index}`} index={index} survey={survey} />
       ))}

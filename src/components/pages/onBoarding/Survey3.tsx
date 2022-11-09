@@ -7,13 +7,13 @@ const survey3 = [
   {
     question: 'What is your global turnover? ',
     answer: [
-      { id: 1, label: 'I don’t know' },
-      { id: 2, label: '< 1B' },
-      { id: 4, label: '1B –2B' },
-      { id: 5, label: '3B –5B' },
-      { id: 6, label: '5B –10B' },
-      { id: 7, label: '10B –20B' },
-      { id: 8, label: '> 20B' },
+      { id: '1', label: 'I don’t know' },
+      { id: '2', label: '< 1B' },
+      { id: '3', label: '1B –2B' },
+      { id: '4', label: '3B –5B' },
+      { id: '5', label: '5B –10B' },
+      { id: '6', label: '10B –20B' },
+      { id: '7', label: '> 20B' },
     ],
   },
 ];

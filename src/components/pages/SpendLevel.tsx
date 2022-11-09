@@ -3,7 +3,7 @@ import { SpendLevelCard } from '../cards/spend/SpendLevelCard';
 import { ComplexityCard } from '../cards/spend/index';
 import { PageWrapper } from './pageComponents/PageWrapper';
 
-export const Complexity = () => {
+export const SpendLevel = () => {
   return (
     <PageWrapper>
       <CardColumn>

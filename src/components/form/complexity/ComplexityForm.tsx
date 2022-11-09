@@ -1,14 +1,20 @@
-import { useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import styled from 'styled-components/macro';
 import { DottedLine, lightBlue, primaryText } from '../../ui/styles';
 import { Button } from '../../ui/button';
 import { LoadingSpinner } from '../LoadingSpinner';
 
+interface ComplexityFormProps {
+  setIsEditing: (isEditing: boolean) => void;
+  setHasBeenEdited: (hasBeenEdited: boolean) => void;
+  setHasEditedLevels: (hasEditedLevels: boolean) => void;
+}
+
 export const ComplexityForm = ({
   setIsEditing,
   setHasBeenEdited,
   setHasEditedLevels,
-}) => {
+}: ComplexityFormProps) => {
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   const [input3, setInput3] = useState('');
@@ -18,29 +24,29 @@ export const ComplexityForm = ({
   const [input7, setInput7] = useState('');
   const [processing, setProcessing] = useState(false);
 
-  const handleInput1 = (e) => {
+  const handleInput1 = (e: ChangeEvent<HTMLInputElement>) => {
     setInput1(e.target.value);
   };
-  const handleInput2 = (e) => {
+  const handleInput2 = (e: ChangeEvent<HTMLInputElement>) => {
     setInput2(e.target.value);
   };
-  const handleInput3 = (e) => {
+  const handleInput3 = (e: ChangeEvent<HTMLInputElement>) => {
     setInput3(e.target.value);
   };
-  const handleInput4 = (e) => {
+  const handleInput4 = (e: ChangeEvent<HTMLInputElement>) => {
     setInput4(e.target.value);
   };
-  const handleInput5 = (e) => {
+  const handleInput5 = (e: ChangeEvent<HTMLInputElement>) => {
     setInput5(e.target.value);
   };
-  const handleInput6 = (e) => {
+  const handleInput6 = (e: ChangeEvent<HTMLInputElement>) => {
     setInput6(e.target.value);
   };
-  const handleInput7 = (e) => {
+  const handleInput7 = (e: ChangeEvent<HTMLInputElement>) => {
     setInput7(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setProcessing(true);
 
@@ -158,7 +164,6 @@ export const ComplexityForm = ({
                 inverted
                 fontWeight={500}
                 width='209px'
-                marginLeft={undefined}
               >
                 Cancel
               </Button>
@@ -167,7 +172,7 @@ export const ComplexityForm = ({
                 fontWeight={500}
                 marginLeft={20}
                 width='209px'
-                onClick={undefined}
+                onClick={handleSubmit}
               >
                 Process data
               </Button>

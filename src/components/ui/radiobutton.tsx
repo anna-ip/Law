@@ -1,6 +1,16 @@
 import styled from 'styled-components/macro';
 import { black } from './styles';
 
+interface RadioButtonProps {
+  label: string;
+  id: string | undefined;
+  value: string;
+  checked: boolean;
+  defaultChecked: boolean;
+  name: string;
+  onChange: () => void;
+}
+
 export const RadioButton = ({
   label,
   id,
@@ -9,7 +19,7 @@ export const RadioButton = ({
   defaultChecked,
   name,
   onChange,
-}) => {
+}: RadioButtonProps) => {
   return (
     <RadioButtonContainer>
       <StyledRadioButton
@@ -56,7 +66,7 @@ const StyledRadioButton = styled.input`
   }
 `;
 
-const Label = styled.p`
+const Label = styled.label`
   font-family: 'Inter';
   font-size: 1rem;
   margin: 10px 0 10px 12px;

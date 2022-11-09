@@ -9,13 +9,13 @@ const survey4 = [
     explanation:
       '(internal people cost including lawyers, paralegals, IP specialists, compliance team and external legal cost)',
     answer: [
-      { id: 1, label: '< 5' },
-      { id: 2, label: '5 –15' },
-      { id: 4, label: '16 - 25' },
-      { id: 5, label: '26 –50' },
-      { id: 6, label: '51 –100' },
-      { id: 7, label: '100 - 200' },
-      { id: 8, label: '> 200' },
+      { id: '1', label: '< 5' },
+      { id: '2', label: '5 –15' },
+      { id: '4', label: '16 - 25' },
+      { id: '5', label: '26 –50' },
+      { id: '6', label: '51 –100' },
+      { id: '7', label: '100 - 200' },
+      { id: '8', label: '> 200' },
     ],
   },
 ];

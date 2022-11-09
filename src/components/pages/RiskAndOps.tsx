@@ -4,11 +4,11 @@ import {
   RiskManagement,
   RiskAndOpportunities,
 } from '../cards/risk/index';
-import { PageBase } from './pageComponents/PageBase';
+import { PageWrapper } from './pageComponents/PageWrapper';
 
 export const RiskAndOps = () => {
   return (
-    <PageBase>
+    <PageWrapper>
       <CardColumn>
         <RiskAndOpportunities />
       </CardColumn>
@@ -16,7 +16,7 @@ export const RiskAndOps = () => {
         <Materialized />
         <RiskManagement />
       </CardColumn>
-    </PageBase>
+    </PageWrapper>
   );
 };
 

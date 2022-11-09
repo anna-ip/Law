@@ -4,7 +4,7 @@ import { Header } from '../../Header';
 import { LastUpdated } from '../../LastUpdated';
 import { NavLink } from '../../navLink/NavLink';
 
-export const PageBase = ({ children }: PropsWithChildren) => {
+export const PageWrapper = ({ children }: PropsWithChildren) => {
   return (
     <Container>
       <NavLink />

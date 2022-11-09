@@ -9,7 +9,7 @@ import { ComplexityForm } from '../../form/complexity/ComplexityForm';
 export const ComplexityCard = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [hasBeenEdited, setHasBeenEdited] = useState(false);
-  const [hasEditiedLevels, setHasEditedLevels] = useState(false);
+  const [hasEditedLevels, setHasEditedLevels] = useState(false);
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -25,9 +25,9 @@ export const ComplexityCard = () => {
     setHasEditedLevels(false);
   }, []);
 
-  const circleBackground = hasEditiedLevels ? `${yellow}` : `${greenNeon}`;
-  const circleIcon = hasEditiedLevels ? `${exclamation}` : `${check}`;
-  const iconSize = hasEditiedLevels ? 4 : 16;
+  const circleBackground = hasEditedLevels ? `${yellow}` : `${greenNeon}`;
+  const circleIcon = hasEditedLevels ? `${exclamation}` : `${check}`;
+  const iconSize = hasEditedLevels ? 4 : 16;
 
   return (
     <Card
@@ -39,7 +39,7 @@ export const ComplexityCard = () => {
       hasBeenEdited={hasBeenEdited}
       hasInfoButton={false}
       hasLevels
-      hasEditiedLevels={hasEditiedLevels}
+      hasEditedLevels={hasEditedLevels}
       circleBackground={circleBackground}
       icon={circleIcon}
       iconSize={iconSize}

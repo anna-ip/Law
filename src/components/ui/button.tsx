@@ -52,7 +52,7 @@ const StyledLink = styled(Link)<LinkButtonProps>`
 `;
 
 interface OnboardingLinkProps {
-  to: string;
+  to: any;
 }
 
 export const OnboardingLink = ({ to }: OnboardingLinkProps) => {

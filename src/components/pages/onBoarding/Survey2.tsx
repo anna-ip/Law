@@ -7,13 +7,13 @@ const survey2 = [
   {
     question: 'What is your role?',
     answer: [
-      { id: 1, label: 'Chief Executive Officer' },
-      { id: 2, label: 'Chief Financial Officer' },
-      { id: 4, label: 'Group General Counsel / Chief Legal Officer' },
-      { id: 5, label: 'Head of Legal Operations' },
-      { id: 6, label: 'Chief Compliance Officer' },
-      { id: 7, label: 'Chief Operating Officer' },
-      { id: 8, label: 'Other' },
+      { id: '1', label: 'Chief Executive Officer' },
+      { id: '2', label: 'Chief Financial Officer' },
+      { id: '4', label: 'Group General Counsel / Chief Legal Officer' },
+      { id: '5', label: 'Head of Legal Operations' },
+      { id: '6', label: 'Chief Compliance Officer' },
+      { id: '7', label: 'Chief Operating Officer' },
+      { id: '8', label: 'Other' },
     ],
   },
 ];

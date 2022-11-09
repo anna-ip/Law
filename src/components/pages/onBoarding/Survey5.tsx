@@ -10,14 +10,14 @@ const survey5 = [
     question: 'What is the external legal cost?',
     explanation: '(Law firms, Alternative service provider)',
     answer: [
-      { id: 1, label: 'I don’t know' },
-      { id: 2, label: '< 1M' },
-      { id: 4, label: '1M –5M' },
-      { id: 5, label: '6M –10M' },
-      { id: 6, label: '11M –20M' },
-      { id: 7, label: '21M –50M' },
-      { id: 8, label: '51M –100M' },
-      { id: 9, label: '> 100M' },
+      { id: '1', label: 'I don’t know' },
+      { id: '2', label: '< 1M' },
+      { id: '3', label: '1M –5M' },
+      { id: '4', label: '6M –10M' },
+      { id: '5', label: '11M –20M' },
+      { id: '6', label: '21M –50M' },
+      { id: '7', label: '51M –100M' },
+      { id: '8', label: '> 100M' },
     ],
   },
 ];
@@ -46,7 +46,7 @@ export const Survey5 = () => {
       {survey5.map((survey, index) => (
         <Survey key={`survey-${index}`} index={index} survey={survey} />
       ))}
-      <OnboardingLink to={handleNavigate(location)} />
+      <OnboardingLink to={handleNavigate} />
     </SurveyBackground>
   );
 };
