@@ -1,44 +1,56 @@
-import { useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import styled from 'styled-components/macro';
 import { RadioButton } from '../ui/radiobutton';
 import { H1, lightBlue, primaryText } from '../ui/styles';
 
-export const Survey = ({ survey, index }) => {
+interface SurveyProps {
+  survey: any;
+  index: number;
+}
+
+export const Survey = ({ survey, index }: SurveyProps) => {
   const [isSelected, setIsSelected] = useState(survey.answer[0].label);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setIsSelected(e.target.value);
   };
 
-  const hasTextArea = survey.answer.some((value) => value.label === 'Other');
+  // const hasTextArea = survey.answer.some(
+  //   (value: { id: number; label: string }) => value.label === 'Other'
+  // );
   const selected = isSelected === 'Other';
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
-    <Container>
+    <Container onSubmit={handleSubmit}>
       <TextWrapper>
         <H1>{survey.question}</H1>
         {survey.explanation && <Explanation>{survey.explanation}</Explanation>}
       </TextWrapper>
-      <Wrapper hasTextArea={hasTextArea}>
-        {survey.answer.map((a, index) => (
-          <RadioButton
-            key={`radio-button-${index}`}
-            name={`radio-button-${index}`}
-            label={a.label}
-            id={a.id}
-            value={a.label}
-            onChange={handleChange}
-            checked={isSelected === `${a.label}`}
-          />
-        ))}
+      <Wrapper>
+        {survey.answer.map(
+          (a: { id: string; label: string }, index: number) => (
+            <RadioButton
+              key={`radio-button-${index}`}
+              name={`radio-button-${index}`}
+              label={a.label}
+              id={a.id}
+              value={a.label}
+              onChange={handleChange}
+              checked={isSelected === `${a.label}`}
+            />
+          )
+        )}
       </Wrapper>
       {survey.answer.map(
-        (option, index) =>
+        (option: { id: string; label: string }, index: number) =>
           option.label === 'Other' &&
           selected && (
             <StyledTextArea
               key={index}
-              type='textArea'
               placeholder='Describe...'
             ></StyledTextArea>
           )
@@ -46,7 +58,7 @@ export const Survey = ({ survey, index }) => {
     </Container>
   );
 };
-const Container = styled.div`
+const Container = styled.form`
   height: 100%;
 `;
 

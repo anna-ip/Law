@@ -1,8 +1,9 @@
+import React, { PropsWithChildren } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components/macro';
 import { secondaryBackground } from '../ui/styles';
 
-export const SurveyBackground = ({ children }) => {
+export const SurveyBackground = ({ children }: PropsWithChildren) => {
   return (
     <Container>
       <BackgroundContainer

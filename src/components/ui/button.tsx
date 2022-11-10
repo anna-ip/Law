@@ -2,12 +2,10 @@ import React, { PropsWithChildren, SyntheticEvent } from 'react';
 import styled from 'styled-components/macro';
 import { white, text, black, softBlack, secondaryBackground } from './styles';
 import logo from '../../assets/images/google.png';
-import { Link } from 'react-router-dom';
+import { Link, LinkProps } from 'react-router-dom';
 import { ReactComponent as Arrow } from '../../assets/images/Arrow 1.svg';
 
-interface LinkButtonProps {
-  to: string;
-  children: React.ReactNode;
+interface LinkButtonProps extends LinkProps {
   backgroundcolor?: string;
   width?: number;
   color?: string;
@@ -19,7 +17,7 @@ export const LinkButton = ({
   backgroundcolor,
   width,
   color,
-}: LinkButtonProps) => {
+}: PropsWithChildren<LinkButtonProps>) => {
   return (
     <StyledLink
       to={to}
@@ -51,13 +49,9 @@ const StyledLink = styled(Link)<LinkButtonProps>`
   cursor: pointer;
 `;
 
-interface OnboardingLinkProps {
-  to: any;
-}
-
-export const OnboardingLink = ({ to }: OnboardingLinkProps) => {
+export const OnboardingLink = (props: Pick<LinkProps, 'to' | 'onClick'>) => {
   return (
-    <LinkButton to={to}>
+    <LinkButton {...props}>
       <Arrow width='89px' />
     </LinkButton>
   );

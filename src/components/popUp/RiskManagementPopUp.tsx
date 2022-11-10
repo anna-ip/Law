@@ -7,10 +7,16 @@ import { PopUp } from './popUpComponents/PopUp';
 import { lines, primaryText, secondaryBackground, yellow } from '../ui/styles';
 import { ReactComponent as Icon } from '../../assets/images/bulls-eye.svg';
 
-export const RiskManagementPopUp = ({ setIsOpen }) => {
+interface PopUpProps {
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+export const RiskManagementPopUp = ({ setIsOpen }: PopUpProps) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    return () => (document.body.style.overflow = 'unset');
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, []);
 
   return (

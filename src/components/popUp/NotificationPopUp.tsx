@@ -7,7 +7,11 @@ import pen from '../../assets/images/pen-field.svg';
 import { Button } from '../ui/button';
 import { primaryText } from '../ui/styles';
 
-export const NotificationPopUp = ({ setIsModalOpen }) => {
+interface PopUpProps {
+  setIsModalOpen: (isModalOpen: boolean) => void;
+}
+
+export const NotificationPopUp = ({ setIsModalOpen }: PopUpProps) => {
   let navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -16,7 +20,9 @@ export const NotificationPopUp = ({ setIsModalOpen }) => {
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    return () => (document.body.style.overflow = 'unset');
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, []);
 
   return (

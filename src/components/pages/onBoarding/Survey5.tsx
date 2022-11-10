@@ -28,8 +28,6 @@ export const Survey5 = () => {
 
   const handleNavigate = () => {
     window.localStorage.setItem('DATE', JSON.stringify(today));
-
-    return { ...location, pathname: '/home' };
   };
 
   useEffect(() => {
@@ -46,7 +44,10 @@ export const Survey5 = () => {
       {survey5.map((survey, index) => (
         <Survey key={`survey-${index}`} index={index} survey={survey} />
       ))}
-      <OnboardingLink to={handleNavigate} />
+      <OnboardingLink
+        to={{ ...location, pathname: '/home' }}
+        onClick={handleNavigate}
+      />
     </SurveyBackground>
   );
 };
