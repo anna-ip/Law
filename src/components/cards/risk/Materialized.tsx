@@ -31,6 +31,7 @@ export const Materialized = () => {
         title='Materialized cost'
         circleSize={24}
         icon={check}
+        iconSize={16}
         circleBackground={greenNeon}
         onClickInfo={handleOpenModal}
         onClick={handleEdit}

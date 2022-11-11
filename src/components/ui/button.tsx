@@ -1,6 +1,5 @@
 import React, { PropsWithChildren, SyntheticEvent } from 'react';
 import styled from 'styled-components/macro';
-import { white, text, black, softBlack, secondaryBackground } from './styles';
 import logo from '../../assets/images/google.png';
 import { Link, LinkProps } from 'react-router-dom';
 import { ReactComponent as Arrow } from '../../assets/images/Arrow 1.svg';
@@ -33,7 +32,9 @@ export const LinkButton = ({
 const StyledLink = styled(Link)<LinkButtonProps>`
   display: flex;
   background-color: ${(props) =>
-    props.backgroundcolor ? `${props.backgroundcolor}` : `${black}`};
+    props.backgroundcolor
+      ? `${props.backgroundcolor}`
+      : `${props.theme.colors.primaryBlue}`};
   width: ${(props) => (props.width ? `${props.width}px` : '150px')};
   height: 60px;
   justify-content: center;
@@ -44,7 +45,8 @@ const StyledLink = styled(Link)<LinkButtonProps>`
   font-family: 'Poppins';
   font-weight: 500;
   font-size: 1.25rem;
-  color: ${(props) => (props.color ? `${props.color}` : `${white}`)};
+  color: ${(props) =>
+    props.color ? `${props.color}` : `${props.theme.colors.white}`};
   text-decoration: none;
   cursor: pointer;
 `;
@@ -76,12 +78,12 @@ const StyledGoogleButton = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${secondaryBackground};
+  background-color: ${(props) => props.theme.colors.secondaryBackground};
   width: 294px;
   height: 56px;
   border-radius: 50px;
-  border: 2px solid ${softBlack};
-  color: ${text};
+  border: 2px solid ${(props) => props.theme.colors.primaryBlue};
+  color: ${(props) => props.theme.colors.primaryText};
   margin-top: 10px;
   text-decoration: none;
   cursor: pointer;
@@ -154,7 +156,10 @@ export const Button = ({
 
 const StyledButton = styled.button<ButtonProps>`
   display: flex;
-  background-color: ${(props) => (props.inverted ? `${white}` : `${black}`)};
+  background-color: ${(props) =>
+    props.inverted
+      ? `${props.theme.colors.white}`
+      : `${props.theme.colors.primaryBlue}`};
   width: ${(props) => (props.width ? `${props.width}` : '150px')};
   height: 60px;
   width: 200px;
@@ -171,6 +176,9 @@ const StyledLabel = styled.p<ButtonLabelProps>`
   font-family: 'Poppins';
   font-weight: ${(props) => (props.fontWeight ? `${props.fontWeight}` : 700)};
   font-size: ${(props) => (props.fontSize ? `${props.fontSize}` : '1rem')};
-  color: ${(props) => (props.inverted ? `${black}` : `${white}`)};
+  color: ${(props) =>
+    props.inverted
+      ? `${props.theme.colors.primaryBlue}`
+      : `${props.theme.colors.white}`};
   text-decoration: none;
 `;
