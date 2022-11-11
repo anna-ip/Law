@@ -2,8 +2,13 @@ import styled from 'styled-components/macro';
 import { DottedLine, green, primaryText } from '../../ui/styles';
 import clock from '../../../assets/images/clock-grey.svg';
 import { Fragment } from 'react';
+import { Total, TotalHours, Hours } from '../../cards/legal/data';
 
-export const LegalTable = ({ tableData }) => {
+interface LegalTableProps {
+  tableData: Array<TotalHours | Total | Hours>;
+}
+
+export const LegalTable = ({ tableData }: LegalTableProps) => {
   return (
     <StandardContainer>
       <HeaderWrapper>
@@ -11,7 +16,7 @@ export const LegalTable = ({ tableData }) => {
         <LeftContainer>
           <img src={clock} alt='Clock icon' />
           <TotalText>Total activities</TotalText>
-          {tableData.map((data, index) => (
+          {tableData.map((data: any, index: number) => (
             <TotalTime key={index}>
               {data?.totalHours?.toLocaleString()}
             </TotalTime>
@@ -31,13 +36,13 @@ export const LegalTable = ({ tableData }) => {
             <StyledLabel>Routine</StyledLabel>
           </HeadCell>
         </HeadRow>
-        {tableData.map((data, row) => (
+        {tableData.map((data: any, row: number) => (
           <Fragment key={row}>
             <TableRow>
               <TitleWrapper>
                 <TableTitle>{data.title}</TableTitle>
               </TitleWrapper>
-              {data.hours?.map((time, index) => (
+              {data.hours?.map((time: any, index: number) => (
                 <Row key={index}>
                   {time.total >= 0 && (
                     <Cell>
@@ -64,9 +69,11 @@ export const LegalTable = ({ tableData }) => {
       <TotalContainer>
         <TotalTitle>Risk & OPS </TotalTitle>
         {tableData.map(
-          (data, index) =>
+          (data: any, index: number) =>
             data.total && (
-              <Total key={index}>{data.total.toLocaleString()} MM€</Total>
+              <TotalAmount key={index}>
+                {data.total.toLocaleString()} MM€
+              </TotalAmount>
             )
         )}
       </TotalContainer>
@@ -130,7 +137,7 @@ const TotalTitle = styled.h2`
   margin: 0 130px 0 0;
 `;
 
-const Total = styled.h2`
+const TotalAmount = styled.h2`
   font-family: 'Poppins';
   font-weight: 500;
   font-size: 20px;

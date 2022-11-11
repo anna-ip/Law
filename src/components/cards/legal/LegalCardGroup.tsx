@@ -4,19 +4,19 @@ import { LegalBanner } from '../cardComponents/LegalBanner';
 import plus from '../../../assets/images/circle-plus.svg';
 import { LegalCard } from './LegalCard';
 import { AddCard } from './AddCard';
-import { departmentData } from './data';
+import { departmentData, IDepartmentData } from './data';
 import { primaryText } from '../../ui/styles';
 
 export const LegalCardGroup = () => {
-  const [addCard, setAddCard] = useState(false);
-  const [departments, setUpdateDepartments] = useState([...departmentData]);
+  const [addCard, setAddCard] = useState<boolean>(false);
+  const [departments, setUpdateDepartments] = useState<IDepartmentData[]>([
+    ...departmentData,
+  ]);
   const hours = 56285;
 
   const totalOfEmployees = departments.reduce((previousValue, currentValue) => {
     return previousValue + Number(currentValue.employee);
   }, 0);
-
-  console.log(typeof totalOfEmployees);
 
   return (
     <>

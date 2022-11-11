@@ -59,6 +59,20 @@ export const activitieTable = [
   { title: 'Trainings', hours: [{ total: 0 }] },
 ];
 
+export type TotalHours = { totalHours: number };
+export type Total = { total: number };
+export type Hours = {
+  title: string;
+  hours: { total: number; complex?: number; routine?: number }[];
+};
+
+export interface IDepartmentData {
+  department: string;
+  employee: string;
+  valueDrivers: string[];
+  table: Array<TotalHours | Total | Hours>;
+}
+
 export const departmentData = [
   {
     department: 'Legal department',

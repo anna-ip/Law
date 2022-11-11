@@ -1,21 +1,32 @@
-import { useState, Fragment } from 'react';
+import React, { useState, Fragment, ChangeEvent, FormEvent } from 'react';
 import styled from 'styled-components/macro';
 import { darkRed, lightBlue, primaryText } from '../../ui/styles';
 import { Button } from '../../ui/button';
+import { Total, TotalHours, Hours } from '../../cards/legal/data';
 
-export const LegalForm = ({ setIsEditing, formData, setHasBeenEdited }) => {
+interface LegalFormProps {
+  setIsEditing: (isEditing: boolean) => void;
+  formData: Array<TotalHours | Total | Hours>;
+  setHasBeenEdited: (hasBeenEdited: boolean) => void;
+}
+
+export const LegalForm = ({
+  setIsEditing,
+  formData,
+  setHasBeenEdited,
+}: LegalFormProps) => {
   const [input] = useState();
 
   const handleCancel = () => {
     setIsEditing(false);
   };
 
-  const handleChange = (e, title) => {
-    const { name, value } = e.target.value;
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
     console.log(name, value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setIsEditing(false);
 
@@ -32,64 +43,71 @@ export const LegalForm = ({ setIsEditing, formData, setHasBeenEdited }) => {
       </HeaderWrapper>
       <form onSubmit={handleSubmit}>
         <Table>
-          {formData?.map((data, index) => (
+          {formData?.map((data: any, index: number) => (
             <Fragment key={`row-${index}`}>
-              {data.title && (
+              {data?.title && (
                 <>
                   <Row>
                     <TitleWrapper>
                       <TableTitle>{data.title}</TableTitle>
                     </TitleWrapper>
                     {data.hours &&
-                      data.hours.map((time, index) => (
-                        <Fragment key={index}>
-                          {time.complex >= 0 ? (
-                            <Cell>
-                              <StyledLabel>Complex</StyledLabel>
-                              <StyledInput>
-                                <Input
-                                  placeholder={time.complex}
-                                  value={input}
-                                  name='complex'
-                                  onChange={(e) => handleChange(e, data.title)}
-                                />
-                                <Hour>hour</Hour>
-                              </StyledInput>
-                            </Cell>
-                          ) : (
-                            <Cell>
-                              <StyledLabel>Total</StyledLabel>
-                              <StyledInput>
-                                {time.total >= 0 && (
+                      data.hours.map(
+                        (
+                          time: {
+                            total: number;
+                            complex?: number;
+                            routine?: number;
+                          },
+                          index: number
+                        ) => (
+                          <Fragment key={index}>
+                            {time.complex && time.complex >= 0 ? (
+                              <Cell>
+                                <StyledLabel>Complex</StyledLabel>
+                                <StyledInput>
                                   <Input
-                                    placeholder={time.total}
+                                    placeholder={`${time.complex}`}
                                     value={input}
-                                    name='total'
-                                    onChange={(e) =>
-                                      handleChange(e, data.title)
-                                    }
+                                    name='complex'
+                                    onChange={handleChange}
                                   />
-                                )}
-                                <Hour>hour</Hour>
-                              </StyledInput>
-                            </Cell>
-                          )}
-                          {time.routine >= 0 && (
-                            <Cell>
-                              <StyledLabel>Routine</StyledLabel>
-                              <StyledInput>
-                                <Input
-                                  placeholder={time.routine}
-                                  value={input}
-                                  name='routine'
-                                  onChange={(e) => handleChange(e, data.title)}
-                                />
-                                <Hour>hour</Hour>
-                              </StyledInput>
-                            </Cell>
-                          )}
-                        </Fragment>
-                      ))}
+                                  <Hour>hour</Hour>
+                                </StyledInput>
+                              </Cell>
+                            ) : (
+                              <Cell>
+                                <StyledLabel>Total</StyledLabel>
+                                <StyledInput>
+                                  {time.total >= 0 && (
+                                    <Input
+                                      placeholder={`${time.total}`}
+                                      value={input}
+                                      name='total'
+                                      onChange={handleChange}
+                                    />
+                                  )}
+                                  <Hour>hour</Hour>
+                                </StyledInput>
+                              </Cell>
+                            )}
+                            {time.routine && time.routine >= 0 && (
+                              <Cell>
+                                <StyledLabel>Routine</StyledLabel>
+                                <StyledInput>
+                                  <Input
+                                    placeholder={`${time.routine}`}
+                                    value={input}
+                                    name='routine'
+                                    onChange={handleChange}
+                                  />
+                                  <Hour>hour</Hour>
+                                </StyledInput>
+                              </Cell>
+                            )}
+                          </Fragment>
+                        )
+                      )}
                   </Row>
                   <Line />
                 </>
@@ -114,6 +132,7 @@ export const LegalForm = ({ setIsEditing, formData, setHasBeenEdited }) => {
               fontWeight={500}
               marginLeft={20}
               width='209px'
+              onClick={handleSubmit}
             >
               Save changes
             </Button>

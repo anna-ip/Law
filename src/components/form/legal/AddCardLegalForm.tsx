@@ -1,14 +1,26 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import styled from 'styled-components/macro';
 import { darkRed, lightBlue, primaryText } from '../../ui/styles';
 import { Button } from '../../ui/button';
 
-export const AddCardLegalForm = ({ setIsEditing, addCard }) => {
-  const [input] = useState();
+interface AddCardLegalFormProps {
+  setIsEditing: (isEditing: boolean) => void;
+  addCard: boolean;
+}
 
-  const handleChange = (e) => {
-    const { name, value } = e.target.value;
+export const AddCardLegalForm = ({
+  setIsEditing,
+  addCard,
+}: AddCardLegalFormProps) => {
+  const [input] = useState('');
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
     console.log(name, value);
+  };
+
+  const handleSubmit = () => {
+    console.log('Submit');
   };
 
   const handleCancel = () => {
@@ -167,7 +179,7 @@ export const AddCardLegalForm = ({ setIsEditing, addCard }) => {
       </Table>
       {!addCard && (
         <ButtonContainer>
-          <DeleteButton>Delete department</DeleteButton>}
+          <DeleteButton>Delete department</DeleteButton>
           <ButtonWrapper>
             <Button
               onClick={handleCancel}
@@ -182,6 +194,7 @@ export const AddCardLegalForm = ({ setIsEditing, addCard }) => {
               fontWeight={500}
               marginLeft={20}
               width='209px'
+              onClick={handleSubmit}
             >
               Save changes
             </Button>

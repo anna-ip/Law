@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import styled from 'styled-components/macro';
 import {
   white,
@@ -15,26 +15,30 @@ import close from '../../../assets/images/close.svg';
 import plus from '../../../assets/images/circle-plus.svg';
 
 import { LegalTable } from '../../form/legal/LegalTable';
-import { valueDrivers } from './data';
+import { IDepartmentData, valueDrivers } from './data';
 import { LegalForm } from '../../form/legal/LegalForm';
 import { UpdatedBanner } from '../cardComponents/UpdatedBanner';
 
-export const LegalCard = ({ data }) => {
+interface LegalCardProps {
+  data: IDepartmentData;
+}
+
+export const LegalCard = ({ data }: LegalCardProps) => {
   const [employee, setEmployee] = useState(data.employee);
   const [drivers, setDrivers] = useState([...data.valueDrivers]);
   const [isEditing, setIsEditing] = useState(false);
   const [hasBeenEdited, setHasBeenEdited] = useState(false);
 
-  const handleNoOfEmployee = (e) => {
+  const handleNoOfEmployee = (e: ChangeEvent<HTMLInputElement>) => {
     setEmployee(e.target.value);
   };
 
-  const addNewDrivers = (value) => {
+  const addNewDrivers = (value: string) => {
     setDrivers((current) => [...current, value]);
     setHasBeenEdited(true);
   };
 
-  const removeDriver = (value) => {
+  const removeDriver = (value: string) => {
     setDrivers((prevState) => [...prevState.filter((e) => e !== value)]);
     setHasBeenEdited(true);
   };

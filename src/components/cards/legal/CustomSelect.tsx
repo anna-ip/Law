@@ -11,9 +11,22 @@ import {
 } from '../../ui/styles';
 import chevron from '../../../assets/images/chevron.svg';
 
-export const CustomSelect = ({ data, handleChange, onChange }) => {
-  const [isOptionOpen, setIsOptionOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(0);
+interface ButtonProps {
+  selectedOption: number;
+}
+
+interface StyleProps {
+  isOptionOpen: boolean;
+}
+
+interface SelectProps {
+  data: string[];
+  onChange: (value: string) => void;
+}
+
+export const CustomSelect = ({ data, onChange }: SelectProps) => {
+  const [isOptionOpen, setIsOptionOpen] = useState<boolean>(false);
+  const [selectedOption, setSelectedOption] = useState<number>(0);
 
   const toggleOption = () => {
     setIsOptionOpen(!isOptionOpen);
@@ -25,7 +38,6 @@ export const CustomSelect = ({ data, handleChange, onChange }) => {
         <StyledButton
           type='button'
           onClick={toggleOption}
-          isOptionOpen={isOptionOpen}
           selectedOption={selectedOption}
         >
           {data[selectedOption]}
@@ -67,7 +79,7 @@ const Container = styled.div`
   border: 1px solid ${lightBlue};
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<ButtonProps>`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -98,11 +110,11 @@ const StyledButton = styled.button`
   }
 `;
 
-const StyledChevron = styled.img`
+const StyledChevron = styled.img<StyleProps>`
   transform: ${(props) => (props.isOptionOpen ? '' : `rotate(180deg)`)};
 `;
 
-const Options = styled.ul`
+const Options = styled.ul<StyleProps>`
   display: ${(props) => (props.isOptionOpen ? 'block' : 'none')};
   list-style: none;
   padding: 0;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import styled from 'styled-components/macro';
 import {
   white,
@@ -16,47 +16,58 @@ import {
   defaultDrivers,
   departmentList,
   activitieTable,
+  IDepartmentData,
 } from './data';
 import { CustomSelect } from './CustomSelect';
 import { Button } from '../../ui/button';
 import { AddCardLegalForm } from '../../form/legal/AddCardLegalForm';
 
-export const AddCard = ({ setAddCard, addCard, setUpdateDepartments }) => {
-  const [drivers, setDrivers] = useState([...defaultDrivers]);
-  const [, setDepartment] = useState('');
-  const [employee, setEmployee] = useState();
-  const [newDepartment, setNewDepartment] = useState({
+interface AddCardProps {
+  setAddCard: (addCard: boolean) => void;
+  addCard: boolean;
+  setUpdateDepartments: (department: any) => void;
+}
+
+export const AddCard = ({
+  setAddCard,
+  addCard,
+  setUpdateDepartments,
+}: AddCardProps) => {
+  const [drivers, setDrivers] = useState<string[]>([...defaultDrivers]);
+  const [, setDepartment] = useState<string>('');
+  const [employee, setEmployee] = useState<string>('');
+  const [newDepartment, setNewDepartment] = useState<IDepartmentData>({
     department: '',
     employee: '',
     valueDrivers: drivers,
     table: activitieTable,
   });
 
-  const addNewDrivers = (value) => {
+  const addNewDrivers = (value: string) => {
     const newValue = [...drivers, value];
     setDrivers(newValue);
     setNewDepartment({ ...newDepartment, valueDrivers: newValue });
   };
 
-  const removeDriver = (value) => {
+  const removeDriver = (value: string) => {
     const newValue = drivers.filter((e) => e !== value);
     setDrivers(newValue);
     setNewDepartment({ ...newDepartment, valueDrivers: newValue });
   };
 
-  const onChangeEmployee = (e) => {
-    setEmployee(e.target.value);
+  const onChangeEmployee = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmployee(`${e.target.value}`);
     setNewDepartment({ ...newDepartment, employee: `${e.target.value}` });
   };
 
-  const onChangeDepartment = (value) => {
+  const onChangeDepartment = (value: string) => {
     setDepartment(value);
     setNewDepartment({ ...newDepartment, department: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setUpdateDepartments((current) => [newDepartment, ...current]);
+    setUpdateDepartments((current: any) => [newDepartment, ...current]);
 
     setAddCard(false);
   };
@@ -76,11 +87,7 @@ export const AddCard = ({ setAddCard, addCard, setUpdateDepartments }) => {
       <form onSubmit={handleSubmit}>
         <NewDepartmentContainer>
           <SelectTitle>Department type</SelectTitle>
-          <CustomSelect
-            data={departmentList}
-            onChange={onChangeDepartment}
-            label='Choose department name'
-          />
+          <CustomSelect data={departmentList} onChange={onChangeDepartment} />
         </NewDepartmentContainer>
 
         <EditEmployeeContainer>
@@ -91,7 +98,7 @@ export const AddCard = ({ setAddCard, addCard, setUpdateDepartments }) => {
               name='employee'
               value={employee}
               onChange={onChangeEmployee}
-              placeholder={0}
+              placeholder={'0'}
             />
             <Team>team member</Team>
           </StyledInput>
