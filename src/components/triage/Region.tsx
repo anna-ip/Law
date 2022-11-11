@@ -5,7 +5,12 @@ import { lines, primaryText, softGrey } from '../ui/styles';
 import { ReactComponent as Globe } from '../../assets/images/globe.svg';
 import { departments } from './data';
 
-export const Region = ({ setRegion, region }) => {
+interface RegionProps {
+  region: string;
+  setRegion: (region: string) => void;
+}
+
+export const Region = ({ setRegion, region }: RegionProps) => {
   return (
     <InfoContainer
       key={region}
@@ -33,7 +38,6 @@ export const Region = ({ setRegion, region }) => {
                 alt={info.title}
                 width='24px'
                 height='24px'
-                fill='black'
               />
               <CardTitle>{info.title}</CardTitle>
             </Card>

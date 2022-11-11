@@ -1,7 +1,12 @@
 import styled from 'styled-components/macro';
 import { primaryText, secondaryBackground } from '../ui/styles';
 
-export const PlaceholderItem = ({ label, icon }) => {
+interface PlaceholderProps {
+  label: string;
+  icon: string;
+}
+
+export const PlaceholderItem = ({ label, icon }: PlaceholderProps) => {
   return (
     <StyledLink>
       <Wrapper>

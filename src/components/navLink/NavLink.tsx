@@ -17,7 +17,7 @@ export const NavLink = () => {
   return (
     <SideBarContainer>
       <StyledLink to='/'>
-        <Logo alt='Logo' width='53px' height='56px' />
+        <Logo width='53px' height='56px' />
       </StyledLink>
       <NavLinkItem to={'/home'} label='Home' icon={house} />
       <NavLinkItem to={'/spend'} label='Legal spending' icon={spend} />
