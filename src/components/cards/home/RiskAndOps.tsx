@@ -49,8 +49,6 @@ const Text = styled.p`
 `;
 
 const InfoText = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 0.875rem;
   margin: 0 0 16px 0;
   color: ${lightGrey};

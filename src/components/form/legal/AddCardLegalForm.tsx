@@ -206,7 +206,6 @@ export const AddCardLegalForm = ({
 };
 
 const Title = styled.p`
-  font-family: 'Inter';
   font-weight: 600;
   font-size: 20px;
   color: ${primaryText};
@@ -242,7 +241,6 @@ const Line = styled.div`
 `;
 
 const TableTitle = styled.p`
-  font-family: 'Inter';
   font-weight: 600;
   font-size: 1rem;
   color: ${primaryText};
@@ -258,8 +256,6 @@ const TableData = styled.div`
 `;
 
 const StyledLabel = styled.label`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 12px;
   color: ${primaryText};
 `;
@@ -278,8 +274,6 @@ const StyledInput = styled.div`
 `;
 
 const Input = styled.input`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   width: 100%;
   color: ${primaryText};
@@ -287,8 +281,6 @@ const Input = styled.input`
   padding-left: 22px;
   text-align: start;
   ::placeholder {
-    font-family: 'Inter';
-    font-weight: 500;
     font-size: 16px;
     color: ${primaryText};
     text-align: start;
@@ -300,8 +292,6 @@ const Input = styled.input`
 `;
 
 const Hour = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   color: ${primaryText};
 `;

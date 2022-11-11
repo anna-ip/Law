@@ -140,7 +140,6 @@ const TitleWrapper = styled.div<TitleWrapperProps>`
 `;
 
 const CardTitle = styled.h1`
-  font-family: 'Inter';
   font-weight: 600;
   font-size: 1.625rem;
   color: ${primaryText};
@@ -154,8 +153,6 @@ const TabContainer = styled.div`
 `;
 
 const ActiveTab = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 14px;
   color: ${primaryText};
 `;

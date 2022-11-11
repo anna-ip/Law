@@ -62,8 +62,6 @@ const InputContainer = styled.div`
 `;
 
 const StyledLabel = styled.label`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   color: ${primaryText};
   margin: ${(props) => (props.labelMargin ? `${props.labelMargin}` : 0)};
@@ -88,16 +86,12 @@ const StyledInput = styled.div`
 `;
 
 const Input = styled.input`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   width: 100%;
   color: ${primaryText};
   border-style: none;
   padding: 0;
   ::placeholder {
-    font-family: 'Inter';
-    font-weight: 500;
     font-size: 1rem;
     color: ${primaryText};
     margin: 0;
@@ -109,8 +103,6 @@ const Input = styled.input`
 `;
 
 const InputText = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   color: ${primaryText};
   margin: 0;

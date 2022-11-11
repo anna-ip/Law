@@ -245,7 +245,6 @@ const RegionRow = styled(Row)`
 `;
 
 const StyledLabel = styled.label`
-  font-family: 'Inter';
   font-weight: 600;
   font-size: 16px;
 `;
@@ -263,16 +262,12 @@ const StyledInput = styled.div`
 `;
 
 const Input = styled.input`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   width: 100%;
   text-align: end;
   color: ${primaryText};
   border-style: none;
   ::placeholder {
-    font-family: 'Inter';
-    font-weight: 500;
     font-size: 16px;
     color: ${primaryText};
   }
@@ -283,8 +278,6 @@ const Input = styled.input`
 `;
 
 const Currency = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   color: ${primaryText};
 `;

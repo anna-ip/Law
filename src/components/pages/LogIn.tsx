@@ -69,7 +69,6 @@ const Title = styled.h1`
 `;
 
 const InfoText = styled.p`
-  font-family: 'Inter';
   font-weight: 400;
   font-size: 0.75rem;
   color: ${primaryText};
@@ -113,7 +112,6 @@ const SignUpWrapper = styled.div`
 `;
 
 const SignUpText = styled(InfoText)`
-  font-family: 'Inter';
   font-weight: 400;
   font-size: 1rem;
   color: ${primaryGrey};

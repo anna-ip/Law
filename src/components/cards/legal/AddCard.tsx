@@ -213,16 +213,12 @@ const StyledInput = styled.div`
 `;
 
 const Input = styled.input`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   width: 50%;
   color: ${primaryText};
   border-style: none;
   padding: 0;
   ::placeholder {
-    font-family: 'Inter';
-    font-weight: 500;
     font-size: 16px;
     color: ${primaryText};
     margin: 0;
@@ -234,8 +230,6 @@ const Input = styled.input`
 `;
 
 const Team = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   color: ${primaryText};
   margin: 0;
@@ -246,7 +240,6 @@ const NewDepartmentContainer = styled.div`
 `;
 
 const SelectTitle = styled.p`
-  font-family: 'Inter';
   font-weight: 600;
   font-size: 16px;
   color: ${primaryText};
@@ -259,7 +252,6 @@ const Line = styled.div`
 `;
 
 const Title = styled.p`
-  font-family: 'Inter';
   font-weight: 600;
   font-size: 20px;
   color: ${primaryText};
@@ -267,8 +259,6 @@ const Title = styled.p`
 `;
 
 const Value = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 12px;
   color: ${primaryText};
   margin: 0;

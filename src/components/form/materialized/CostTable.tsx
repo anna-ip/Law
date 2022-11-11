@@ -43,22 +43,18 @@ const Summary = styled.div`
 `;
 
 const Title = styled.p`
-  font-family: 'Inter';
   font-size: 16px;
   font-weight: 600;
   color: ${primaryText};
 `;
 
 const Total = styled.p`
-  font-family: 'Inter';
   font-size: 16px;
-  font-weight: 500;
   color: ${primaryText};
   margin: 0;
 `;
 
 const Text = styled.p`
-  font-family: 'Inter';
   font-size: 12px;
   font-weight: 600;
   color: ${primaryText};

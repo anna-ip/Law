@@ -131,7 +131,6 @@ const Green = styled.span`
 `;
 
 const SubTitle = styled.h2`
-  font-family: 'Inter';
   font-weight: 400;
   font-size: 1.6rem;
   color: ${primaryText};

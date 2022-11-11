@@ -64,7 +64,6 @@ const Icon = styled.img`
 `;
 
 const Label = styled.p`
-  font-family: 'Inter';
   font-weight: 600;
   margin-left: 23px;
 `;

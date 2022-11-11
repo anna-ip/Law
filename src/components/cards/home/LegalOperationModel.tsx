@@ -145,7 +145,6 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.p`
-  font-family: 'Inter';
   font-weight: 600;
   font-size: 1rem;
   color: ${primaryText};
@@ -153,8 +152,6 @@ const Title = styled.p`
 `;
 
 const Text = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 1rem;
   color: ${lightGrey};
   margin: 0 0 0 16px;

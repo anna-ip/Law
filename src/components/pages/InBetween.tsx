@@ -40,7 +40,6 @@ const InfoTextWrapper = styled.div`
 `;
 
 const InfoText = styled.p`
-  font-family: 'Inter';
   font-weight: 400;
   font-size: 0.75rem;
   color: ${primaryText};

@@ -71,7 +71,6 @@ const Summary = styled.div`
 `;
 
 const Title = styled.p`
-  font-family: 'Inter';
   font-size: 1rem;
   font-weight: 600;
   color: ${primaryText};
@@ -79,9 +78,7 @@ const Title = styled.p`
 `;
 
 const Total = styled.p`
-  font-family: 'Inter';
   font-size: 1rem;
-  font-weight: 500;
   color: ${primaryText};
   margin: 0;
 `;

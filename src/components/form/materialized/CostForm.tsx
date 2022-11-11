@@ -9,10 +9,7 @@ interface CostFormProps {
   setHasBeenEdited: (hasBeenEdited: boolean) => void;
 }
 
-export const CostForm = ({
-  setIsEditing,
-  setHasBeenEdited,
-}: CostFormProps) => {
+export const CostForm = ({ setIsEditing, setHasBeenEdited }: CostFormProps) => {
   const [input1, setInput1] = useState('');
   const [input2, setInput2] = useState('');
   const [processing, setProcessing] = useState(false);
@@ -120,7 +117,6 @@ const Row = styled.div`
 `;
 
 const StyledLabel = styled.label`
-  font-family: 'Inter';
   font-weight: 600;
   font-size: 16px;
 `;
@@ -138,16 +134,12 @@ const StyledInput = styled.div`
 `;
 
 const Input = styled.input`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   width: 100%;
   text-align: end;
   color: ${text};
   border-style: none;
   ::placeholder {
-    font-family: 'Inter';
-    font-weight: 500;
     font-size: 16px;
     color: ${text};
   }
@@ -158,8 +150,6 @@ const Input = styled.input`
 `;
 
 const Currency = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   color: ${text};
 `;

@@ -20,8 +20,8 @@ export const App = () => {
 
   return (
     <>
-      <GlobalStyle />
       <Theme>
+        <GlobalStyle />
         <AnimatePresence>
           <Routes location={location} key={location.pathname}>
             <Route path='/' element={<LandingPage />} />

@@ -64,8 +64,6 @@ const BannerTitle = styled.p`
 `;
 
 const TotalText = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   color: ${white};
   margin: 0 14px 0 6px;

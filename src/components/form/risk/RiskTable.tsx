@@ -123,22 +123,18 @@ const Summary = styled.div`
 `;
 
 const Title = styled.p`
-  font-family: 'Inter';
   font-size: 16px;
   font-weight: 600;
   color: ${primaryText};
 `;
 
 const Total = styled.p`
-  font-family: 'Inter';
   font-size: 16px;
-  font-weight: 500;
   color: ${primaryText};
   margin: 0;
 `;
 
 const Text = styled.p`
-  font-family: 'Inter';
   font-size: 12px;
   font-weight: 600;
   color: ${primaryText};
@@ -162,14 +158,11 @@ const Row = styled.div`
 `;
 
 const StyledLabel = styled.label`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 12px;
   color: ${primaryText};
 `;
 
 const StyledValue = styled.p`
-  font-family: 'Inter';
   font-weight: 400;
   font-size: 12px;
   color: ${primaryText};

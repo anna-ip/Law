@@ -42,8 +42,6 @@ const Column = styled.div`
 `;
 
 const InfoText = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 0.75rem;
   margin: 16px 0 0 0;
   color: ${lightGrey};

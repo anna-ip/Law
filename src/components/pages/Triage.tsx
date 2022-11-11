@@ -95,9 +95,7 @@ const Title = styled.h1`
 `;
 
 const SubTitle = styled.p`
-  font-family: 'Inter';
   font-size: 1rem;
-  font-weight: 500;
   color: ${primaryText};
   margin: 17px 0 0 0;
 `;

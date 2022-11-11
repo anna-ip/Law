@@ -89,8 +89,6 @@ const StyledButton = styled.button<ButtonProps>`
   padding: 14px 22px;
   position: relative;
   text-align: left;
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 12px;
   color: ${(props) =>
     props.selectedOption > 0 ? `${textBlack}` : ` ${primaryGrey}`};
@@ -126,8 +124,6 @@ const Options = styled.ul<StyleProps>`
 
 const StyledList = styled.li`
   padding: 10px 10px 10px 24px;
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 12px;
   color: ${primaryText};
   margin: 0;

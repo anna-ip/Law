@@ -56,8 +56,6 @@ const ChartWrapper = styled.div`
 `;
 
 const ChartText = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 12px;
   color: ${primaryText};
   margin: 0 0 0 5px;
@@ -80,8 +78,6 @@ const Wrapper = styled.div`
 `;
 
 const InfoText = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 14px;
   color: ${lightGrey};
   margin: 0;

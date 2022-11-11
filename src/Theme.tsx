@@ -21,7 +21,7 @@ export const Theme = ({ children }: PropsWithChildren) => {
       darkRed: '#FF0000',
       orange: '#F97C4D',
     },
-    fonts: ['Roboto', 'Poppins'],
+    fonts: ['Inter', 'Poppins'],
     fontSizes: {},
   };
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;

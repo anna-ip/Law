@@ -67,7 +67,6 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.p`
-  font-family: 'Inter';
   font-size: 18px;
   font-weight: 700;
   color: ${primaryText};
@@ -80,7 +79,6 @@ const InfoWrapper = styled.div`
 `;
 
 const Info = styled.p`
-  font-family: 'Inter';
   font-size: 16px;
   font-weight: 400;
   color: ${primaryText};
@@ -116,7 +114,6 @@ const InfoBox = styled.div`
 `;
 
 const Percentage = styled.h1`
-  font-family: 'Inter';
   font-weight: 400;
   font-size: 2.25rem;
   margin: 0;
@@ -125,7 +122,6 @@ const Percentage = styled.h1`
 `;
 
 const PercentageInfo = styled.p`
-  font-family: 'Inter';
   font-weight: 400;
   font-size: 0.875rem;
   margin: 4px 0 0 0;
@@ -133,7 +129,6 @@ const PercentageInfo = styled.p`
 `;
 
 const ImageInfo = styled.p`
-  font-family: 'Inter';
   font-weight: 400;
   font-size: 12px;
   color: ${primaryText};

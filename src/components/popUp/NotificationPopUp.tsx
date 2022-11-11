@@ -66,7 +66,6 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.p`
-  font-family: 'Inter';
   font-weight: 700;
   font-size: 1.125rem;
   color: ${primaryText};
@@ -79,7 +78,6 @@ const InfoWrapper = styled.div`
 `;
 
 const Info = styled.p`
-  font-family: 'Inter';
   font-weight: 400;
   font-size: 1rem;
   color: ${primaryText};

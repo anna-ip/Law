@@ -67,7 +67,6 @@ const StyledRadioButton = styled.input`
 `;
 
 const Label = styled.label`
-  font-family: 'Inter';
   font-size: 1rem;
   margin: 10px 0 10px 12px;
 `;

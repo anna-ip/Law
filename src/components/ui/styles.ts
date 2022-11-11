@@ -31,6 +31,8 @@ export const darkRed = '#FF0000'; //theme
 export const GlobalStyle = createGlobalStyle`
   body {
     background: ${backgroundColor};
+    font-family: 'Inter';
+    font-weight: 500;
   }
 `;
 

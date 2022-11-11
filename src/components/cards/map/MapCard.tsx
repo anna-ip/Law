@@ -54,7 +54,6 @@ const Title = styled.h1`
 `;
 
 const SubTitle = styled.p`
-  font-family: 'Inter';
   font-weight: 400;
   font-size: 1rem;
   text-align: center;

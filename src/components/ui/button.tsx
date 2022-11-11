@@ -173,7 +173,7 @@ const StyledButton = styled.button<ButtonProps>`
 `;
 
 const StyledLabel = styled.p<ButtonLabelProps>`
-  font-family: 'Poppins';
+  font-family: ${(props) => props.theme.fonts[1]};
   font-weight: ${(props) => (props.fontWeight ? `${props.fontWeight}` : 700)};
   font-size: ${(props) => (props.fontSize ? `${props.fontSize}` : '1rem')};
   color: ${(props) =>

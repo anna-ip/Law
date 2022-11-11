@@ -104,7 +104,6 @@ const Summary = styled.div`
 `;
 
 const Title = styled.p`
-  font-family: 'Inter';
   font-size: 1rem;
   font-weight: 600;
   color: ${primaryText};
@@ -112,15 +111,12 @@ const Title = styled.p`
 `;
 
 const Total = styled.p`
-  font-family: 'Inter';
   font-size: 1rem;
-  font-weight: 500;
   color: ${primaryText};
   margin: 0;
 `;
 
 const Text = styled.p`
-  font-family: 'Inter';
   font-size: 0.75rem;
   font-weight: 600;
   color: ${primaryText};
@@ -140,9 +136,7 @@ const RegionRow = styled(TitleRow)`
 `;
 
 const RegionText = styled.p`
-  font-family: 'Inter';
   font-size: 0.75rem;
-  font-weight: 500;
   color: ${primaryText};
   margin: 0;
 `;

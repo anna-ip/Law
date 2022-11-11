@@ -90,7 +90,6 @@ const LeftContainer = styled.div`
 `;
 
 const Title = styled.p`
-  font-family: 'Inter';
   font-weight: 600;
   font-size: 20px;
   color: ${primaryText};
@@ -110,8 +109,6 @@ const HeaderWrapper = styled.div`
 `;
 
 const TotalText = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 16px;
   margin: 0 4px;
   color: ${primaryText};
@@ -130,7 +127,6 @@ const TotalContainer = styled.div`
 `;
 
 const TotalTitle = styled.h2`
-  font-family: 'Inter';
   font-weight: 600;
   font-size: 20px;
   color: ${primaryText};
@@ -179,8 +175,6 @@ const HeadCell = styled(Cell)`
 `;
 
 const TableTitle = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 1rem;
   margin: 0;
   color: ${primaryText};
@@ -193,15 +187,11 @@ const TitleWrapper = styled.div`
 `;
 
 const StyledLabel = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 12px;
   color: ${primaryText};
 `;
 
 const InputText = styled.p`
-  font-family: 'Inter';
-  font-weight: 500;
   font-size: 1rem;
   color: ${primaryText};
   margin: 0;
