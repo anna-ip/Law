@@ -4,9 +4,12 @@
 ## Technologies
 * React, this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 * Styled components
+* Type script
+* React router
 
 ### Deployment
 
+https://legal-company.netlify.app
 
 ## Available Scripts
 
