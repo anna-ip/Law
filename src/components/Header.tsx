@@ -4,6 +4,7 @@ import { Circle } from './ui/circle';
 import { red } from './ui/styles';
 import cells from '../assets/images/table-cells.svg';
 import bell from '../assets/images/bell.svg';
+import user from '../assets/images/user.svg';
 import { NotificationPopUp } from './popUp/NotificationPopUp';
 import { Link } from 'react-router-dom';
 import { InputWithIcon } from './ui/inputs';
@@ -26,12 +27,7 @@ export const Header = () => {
             </Notification>
           </OpenModal>
           <Link to={'/logIn'}>
-            <img
-              src='profile-pic.png'
-              alt='mr Alan'
-              width='40px'
-              height='40px'
-            />
+          <Circle icon={user} altText='Table cell icon' iconSize={16} />
           </Link>
         </CircleContainer>
       </HeaderContainer>

@@ -43,7 +43,7 @@ export const LandingPage = () => {
               <SubTitle>
                 With the power of data measuring efficiency holistically now!
               </SubTitle>
-              <LinkButton to={'/logIn'} width={180}>
+              <LinkButton to={'/logIn'} width={'50%'}>
                 Get started
               </LinkButton>
             </TextWrapper>
@@ -66,7 +66,9 @@ const BackgroundImage = styled.div`
 `;
 
 const Container = styled.div`
+ @media (min-width: 768px) {
   padding: 0 146px 0 148px;
+ }
 `;
 
 const HeaderContainer = styled.div`
@@ -82,10 +84,15 @@ const LogoWrapper = styled.div`
   height: auto;
 `;
 
+// todo Add a burger menu!
 const NavContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 4rem;
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+  }
 `;
 
 const Tab = styled.p`
@@ -99,13 +106,22 @@ const InnerContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 8px;
+  @media (min-width: 640px) {
+    padding: 0;
+  };
 `;
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  align-items: center;
   padding: 12% 0;
+
+  @media (min-width: 640px) {
+    width: 50%;
+    align-items: left;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -119,11 +135,15 @@ const TitleRow = styled.div`
 
 const Title = styled.h1`
   font-family: 'Poppins';
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: 500;
   color: ${primaryBlue};
   line-height: 110%;
   margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const Green = styled.span`
@@ -132,14 +152,21 @@ const Green = styled.span`
 
 const SubTitle = styled.h2`
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: ${primaryText};
   line-height: 140%;
   margin: 30px 0 7% 0;
+  @media (min-width: 640px) {
+    font-size: 1.6rem;
+  }
 `;
 
 const CardWrapper = styled.div`
+display: none;
+@media (min-width: 640px) {
   display: flex;
   align-self: center;
+  width: 100%;
   height: 500px;
+}
 `;

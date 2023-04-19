@@ -9,7 +9,7 @@ export const InBetween = () => {
   return (
     <WelcomeCard>
       <Logo width={53} height={56} />
-      <Title>Welcome Alan!</Title>
+      <Title>Welcome!</Title>
       <InfoTextWrapper>
         <InfoText>
           In order to get access to legal data choose your dashboard.

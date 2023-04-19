@@ -6,7 +6,7 @@ import { ReactComponent as Arrow } from '../../assets/images/Arrow 1.svg';
 
 interface LinkButtonProps extends LinkProps {
   backgroundcolor?: string;
-  width?: number;
+  width?: number | string;
   color?: string;
 }
 
@@ -36,7 +36,8 @@ const StyledLink = styled(Link)<LinkButtonProps>`
       ? `${props.backgroundcolor}`
       : `${props.theme.colors.primaryBlue}`};
   width: ${(props) => (props.width ? `${props.width}px` : '150px')};
-  height: 60px;
+  padding: 12px;
+  min-width: 120px;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
@@ -120,7 +121,7 @@ interface ButtonLabelProps {
 
 interface ButtonProps extends ButtonLabelProps {
   type?: ButtonType;
-  onClick: (e: SyntheticEvent) => void;
+  onClick?: (e: SyntheticEvent) => void;
   width?: string;
   marginLeft?: number;
 }
@@ -161,11 +162,11 @@ const StyledButton = styled.button<ButtonProps>`
       ? `${props.theme.colors.white}`
       : `${props.theme.colors.primaryBlue}`};
   width: ${(props) => (props.width ? `${props.width}` : '150px')};
-  height: 60px;
   width: 200px;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
+  border: none;
   margin-left: ${(props) => `${props.marginLeft}px`};
   margin-top: 15px;
   text-decoration: none;

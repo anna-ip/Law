@@ -10,14 +10,17 @@ interface TextInputProps {
   label?: string;
   id?: string | number;
   name?: string;
-  placeholder: string;
+  placeholder?: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   icon?: IconStyle;
   inputText?: ReactNode;
+  width?: String;
   padding?: string;
   margin?: String;
   labelMargin?: string;
+  centerText?: Boolean;
+  pattern?: String;
 }
 
 export const TextInput = ({
@@ -30,9 +33,12 @@ export const TextInput = ({
   onChange,
   icon,
   inputText,
+  width,
   padding,
   margin,
   labelMargin,
+  centerText,
+  pattern
 }: TextInputProps) => {
   return (
     <InputContainer margin={margin}>
@@ -41,7 +47,7 @@ export const TextInput = ({
           {label}
         </StyledLabel>
       )}
-      <StyledInput padding={padding}>
+      <StyledInput padding={padding} width={width}>
         {icon && <Icon src={icon} alt='Magnifier icon' />}
         <Input
           type={type}
@@ -50,6 +56,8 @@ export const TextInput = ({
           value={value}
           onChange={onChange}
           placeholder={placeholder}
+          centerText={centerText}
+          pattern={pattern}
         />
         {inputText && <InputText>{inputText}</InputText>}
       </StyledInput>
@@ -78,7 +86,7 @@ const StyledInput = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 256px;
+  width: ${(props) => props.width ? `${props.width}` : '256px'};
   height: 43px;
   border: 1px solid ${lightBlue};
   border-radius: 10px;
@@ -91,6 +99,7 @@ const Input = styled.input`
   color: ${primaryText};
   border-style: none;
   padding: 0;
+  text-align: ${(props) => (props.centerText ? 'center' : 'left')};
   ::placeholder {
     font-size: 1rem;
     color: ${primaryText};

@@ -1,55 +1,69 @@
 import styled from 'styled-components/macro';
 import { DottedLine, primaryText } from '../../ui/styles';
 
-export const ComplexityTable = () => {
+interface ComplexityTableProps {
+  data: {
+    businessDivisions: string;
+    countries: string;
+    employees: string;
+    responsibilities: string;
+    strategic: string;
+    legalSupport: string;
+    regulated: string;
+  };
+}
+
+export const ComplexityTable = ({data}: ComplexityTableProps) => {
+ 
+
   return (
     <>
       <TitleRow>
         <Title>Business divisions</Title>
         <Summary>
-          <Total>31</Total>
+          <Total>{data.businessDivisions}</Total>
         </Summary>
       </TitleRow>
       <DottedLine />
       <TitleRow>
         <Title>Countries</Title>
         <Summary>
-          <Total>14</Total>
+          <Total>{data.countries}</Total>
         </Summary>
       </TitleRow>
       <DottedLine />
       <TitleRow>
         <Title>Employees</Title>
         <Summary>
-          <Total>7500</Total>
+          <Total>{data.employees}</Total>
         </Summary>
       </TitleRow>
       <DottedLine />
       <TitleRow>
         <Title>Legal areas of responsibilities</Title>
         <Summary>
-          <Total>16</Total>
+          <Total>{data.responsibilities}</Total>
         </Summary>
       </TitleRow>
       <DottedLine />
       <TitleRow>
         <Title>Strategic projects</Title>
         <Summary>
-          <Total>28</Total>
+          <Total>{data.strategic}</Total>
         </Summary>
       </TitleRow>
       <DottedLine />
       <TitleRow>
         <Title>Level of structured legal support demand</Title>
         <Summary>
-          <Total>50%</Total>
+          <Total>{data.legalSupport}%</Total>
         </Summary>
       </TitleRow>
       <DottedLine />
       <TitleRow>
         <Title>Regulated, non regulated industry</Title>
         <Summary>
-          <Total>3</Total>
+          <Total>{data.regulated}</Total>
         </Summary>
       </TitleRow>
     </>

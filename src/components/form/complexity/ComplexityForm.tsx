@@ -1,53 +1,44 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import styled from 'styled-components/macro';
-import { DottedLine, lightBlue, primaryText } from '../../ui/styles';
+import { DottedLine, primaryText } from '../../ui/styles';
 import { Button } from '../../ui/button';
 import { LoadingSpinner } from '../LoadingSpinner';
+import { TextInput } from '../../ui/inputs';
+import {complexityData, complexityDataType} from '../../../data';
 
 interface ComplexityFormProps {
   setIsEditing: (isEditing: boolean) => void;
   setHasBeenEdited: (hasBeenEdited: boolean) => void;
   setHasEditedLevels: (hasEditedLevels: boolean) => void;
+  setData: (data: complexityDataType) => void;
 }
 
 export const ComplexityForm = ({
   setIsEditing,
   setHasBeenEdited,
   setHasEditedLevels,
-}: ComplexityFormProps) => {
-  const [input1, setInput1] = useState('');
-  const [input2, setInput2] = useState('');
-  const [input3, setInput3] = useState('');
-  const [input4, setInput4] = useState('');
-  const [input5, setInput5] = useState('');
-  const [input6, setInput6] = useState('');
-  const [input7, setInput7] = useState('');
+  setData
+}: ComplexityFormProps) => { 
+  const [complexity, setComplexity] = useState<complexityDataType>({
+    businessDivisions: '',
+    countries: '',
+    employees: '',
+    responsibilities: '',
+    strategic: '',
+    legalSupport: '',
+    regulated: ''
+  });
   const [processing, setProcessing] = useState(false);
 
-  const handleInput1 = (e: ChangeEvent<HTMLInputElement>) => {
-    setInput1(e.target.value);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setComplexity({ ...complexity, [event?.target.name]: event?.target.value });
   };
-  const handleInput2 = (e: ChangeEvent<HTMLInputElement>) => {
-    setInput2(e.target.value);
-  };
-  const handleInput3 = (e: ChangeEvent<HTMLInputElement>) => {
-    setInput3(e.target.value);
-  };
-  const handleInput4 = (e: ChangeEvent<HTMLInputElement>) => {
-    setInput4(e.target.value);
-  };
-  const handleInput5 = (e: ChangeEvent<HTMLInputElement>) => {
-    setInput5(e.target.value);
-  };
-  const handleInput6 = (e: ChangeEvent<HTMLInputElement>) => {
-    setInput6(e.target.value);
-  };
-  const handleInput7 = (e: ChangeEvent<HTMLInputElement>) => {
-    setInput7(e.target.value);
-  };
+
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    setData(complexity);
     setProcessing(true);
 
     setTimeout(() => {
@@ -66,95 +57,39 @@ export const ComplexityForm = ({
       <FormContainer onSubmit={handleSubmit}>
         <Row>
           <StyledLabel>Business divisions</StyledLabel>
-          <StyledInput>
-            <Input
-              type='text'
-              value={input1}
-              name='input1'
-              onChange={handleInput1}
-              placeholder='31'
-            />
-          </StyledInput>
+          <TextInput type='text' value={complexity.businessDivisions} name='businessDivisions' placeholder={complexityData.businessDivisions} onChange={handleChange} width='115px' padding='0' centerText pattern="[0-9]+" />
         </Row>
         <DottedLine />
         <Row>
           <StyledLabel>Countries</StyledLabel>
-          <StyledInput>
-            <Input
-              type='text'
-              value={input2}
-              name='input2'
-              onChange={handleInput2}
-              placeholder='14'
-            />
-          </StyledInput>
+          <TextInput type='text' value={complexity.countries} name='countries' placeholder={complexityData.countries} onChange={handleChange} width='115px' padding='0' centerText pattern="[0-9]+"/>
         </Row>
         <DottedLine />
         <Row>
           <StyledLabel>Employees</StyledLabel>
-          <StyledInput>
-            <Input
-              type='text'
-              value={input3}
-              name='input2'
-              onChange={handleInput3}
-              placeholder='10 500'
-            />
-          </StyledInput>
+          <TextInput type='text' value={complexity.employees} name='employees' placeholder={complexityData.employees} onChange={handleChange} width='115px' padding='0' centerText pattern="[0-9]+"/>
         </Row>
         <DottedLine />
         <Row>
           <StyledLabel>Legal areas of responsibilities</StyledLabel>
-          <StyledInput>
-            <Input
-              type='text'
-              value={input4}
-              name='input2'
-              onChange={handleInput4}
-              placeholder='16'
-            />
-          </StyledInput>
+          <TextInput type='text' value={complexity.responsibilities} name='responsibilities' placeholder={complexityData.responsibilities} onChange={handleChange}  width='115px' padding='0' centerText pattern="[0-9]+"/>
         </Row>
         <DottedLine />
         <Row>
           <StyledLabel>Strategic projects</StyledLabel>
-          <StyledInput>
-            <Input
-              type='text'
-              value={input5}
-              name='input2'
-              onChange={handleInput5}
-              placeholder='28'
-            />
-          </StyledInput>
+          <TextInput type='text' value={complexity.strategic} name='strategic' placeholder={complexityData.strategic} onChange={handleChange} width='115px' padding='0' centerText pattern="[0-9]+"/>
         </Row>
         <DottedLine />
         <Row>
           <StyledLabel>
-            Level of stractured legal support demand (in percentage)
+            Level of structured legal support demand (in percentage)
           </StyledLabel>
-          <StyledInput>
-            <Input
-              type='text'
-              value={input6}
-              name='input2'
-              onChange={handleInput6}
-              placeholder='50'
-            />
-          </StyledInput>
+          <TextInput type='text' value={complexity.legalSupport} name='legalSupport' placeholder={complexityData.legalSupport} onChange={handleChange} width='115px' padding='0' centerText pattern="[0-9]+"/>
         </Row>
         <DottedLine />
         <Row>
           <StyledLabel>Regulated, non regulated industry</StyledLabel>
-          <StyledInput>
-            <Input
-              type='text'
-              value={input7}
-              name='input2'
-              onChange={handleInput7}
-              placeholder='3'
-            />
-          </StyledInput>
+          <TextInput type='text' value={complexity.regulated} name='regulated' placeholder={complexityData.regulated} onChange={handleChange}  width='115px' padding='0' centerText pattern="[0-9]+"/>
         </Row>
         <ButtonWrapper>
           {!processing && (
@@ -172,7 +107,6 @@ export const ComplexityForm = ({
                 fontWeight={500}
                 marginLeft={20}
                 width='209px'
-                onClick={handleSubmit}
               >
                 Process data
               </Button>
@@ -208,35 +142,6 @@ const StyledLabel = styled.label`
   font-weight: 600;
   font-size: 16px;
   color: ${primaryText};
-`;
-
-const StyledInput = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 115px;
-  height: 43px;
-  border: 1px solid ${lightBlue};
-  border-radius: 10px;
-  margin-left: 10px;
-`;
-
-const Input = styled.input`
-  font-size: 16px;
-  width: 100%;
-  text-align: center;
-  color: ${primaryText};
-  border-style: none;
-  ::placeholder {
-    font-size: 16px;
-    color: ${primaryText};
-    text-align: center;
-  }
-  :focus {
-    outline: none;
-    border-color: none;
-  }
 `;
 
 const ButtonWrapper = styled.div`

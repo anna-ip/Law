@@ -5,11 +5,14 @@ import check from '../../../assets/images/check.svg';
 import exclamation from '../../../assets/images/exclamation.svg';
 import { ComplexityTable } from '../../form/complexity/ComplexityTable';
 import { ComplexityForm } from '../../form/complexity/ComplexityForm';
+import { complexityData } from '../../../data';
+
 
 export const ComplexityCard = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [hasBeenEdited, setHasBeenEdited] = useState(false);
   const [hasEditedLevels, setHasEditedLevels] = useState(false);
+  const [data, setData] = useState(complexityData)
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -45,12 +48,13 @@ export const ComplexityCard = () => {
       iconSize={iconSize}
       margin='10px 0px 100px 10px'
     >
-      {!isEditing && <ComplexityTable />}
+      {!isEditing && <ComplexityTable data={data}/>}
       {isEditing && (
         <ComplexityForm
           setIsEditing={setIsEditing}
           setHasBeenEdited={setHasBeenEdited}
           setHasEditedLevels={setHasEditedLevels}
+          setData={setData}
         />
       )}
     </Card>

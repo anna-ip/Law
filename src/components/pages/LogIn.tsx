@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import { green, primaryGrey, primaryText } from '../ui/styles';
 import styled from 'styled-components';
 import { GoogleButton, LinkButton } from '../ui/button';
@@ -10,11 +10,17 @@ export const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log('Sign me in')
+  }
+
   return (
     <WelcomeCard>
       <Logo width={53} height={56} />
       <Title>Sign in to GLIS</Title>
       <InfoText>Please enter your details!</InfoText>
+      <form onSubmit={handleSubmit}>
       <InputContainer>
         <TextInput
           type='email'
@@ -48,10 +54,11 @@ export const LogIn = () => {
         </CheckBoxWrapper>
         <ForgotButton>Forgot Password</ForgotButton>
       </CheckBoxContainer>
-      <LinkButton to={'/profileOption'} width={294}>
+      <LinkButton to={'/profileOption'} width={276}>
         Sign in
       </LinkButton>
       <GoogleButton to={'/profileOption'} />
+      </form>
       <SignUpWrapper>
         <SignUpText>Don’t have an account?</SignUpText>
         <SignUpLink>Sign up</SignUpLink>
